@@ -1,5 +1,5 @@
 :root {
-  --bg: #0f0f0d;
+  --bg: #070707;
   --bg-dj: #131210;
   --ink: #f3f0e8;
   --muted: #c9c3b6;
@@ -118,7 +118,10 @@ a {
 }
 
 .hero {
-  padding: clamp(40px, 7vh, 80px) 0 clamp(28px, 4vh, 48px);
+  min-height: calc(100svh - 64px);
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 48px;
 }
 
 .wordmark {
