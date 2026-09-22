@@ -16,38 +16,39 @@ export const site = {
   name: "DJ TY",
   person: "Ashton",
   title: "DJ TY",
-  description: "DJ TY. Bedroom DJ. I taught myself. R&B, American pop, and house.",
+  description: "DJ TY. Bedroom DJ. R&B, American pop, and house.",
   nav: [
-    { href: "/", label: "Music" },
-    { href: "/#reading", label: "Portal" },
-    { href: "/about", label: "About" },
+    { href: "/#audio", label: "audio" },
+    { href: "/#writing", label: "writing" },
+    { href: "/#visual", label: "visual" },
+    { href: "/about", label: "about" },
   ],
   abibu: {
     id: "abibu",
     title: "Abibu",
     paragraphs: [
-      "I started Abibu, and I run it. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
+      "I started Abibu, and I run it. Fatherhood and masculinity.",
     ],
   },
   research: {
     id: "research",
     title: "Research",
     paragraphs: [
-      "I’m looking at why South Korea’s birth rate keeps falling, and at family structure and financial pressure. I’m also in a separate project on male loneliness in Korea.",
+      "South Korea’s birth rate. Family structure, money, and a separate project on male loneliness.",
     ],
   },
   portal: {
     id: "reading",
     title: "Reading Portal",
     origin: [
-      "My uncle inspired Reading Portal. His line is “Listening is Reading.”",
-      "I make the music with AI. I composed and mixed it as DJ TY, and I released these volumes myself. All of the copyright is mine. I’m going to keep experimenting, so the music can be a good background for people, and a good influence.",
+      "My uncle inspired it. “Listening is Reading.”",
+      "I compose and mix with AI. I released the volumes. Copyright is mine.",
     ],
     states: [
-      { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },
-      { letter: "E", name: "Explore", note: "Stay curious. Move through the text." },
-      { letter: "A", name: "Awareness", note: "Notice attention: when it stays, and when it leaves." },
-      { letter: "D", name: "Dream", note: "Let images and associations open." },
+      { letter: "R", name: "Relax", note: "Slow down." },
+      { letter: "E", name: "Explore", note: "Stay with the text." },
+      { letter: "A", name: "Awareness", note: "Notice attention." },
+      { letter: "D", name: "Dream", note: "Images." },
     ],
     releases: [
       {
@@ -131,8 +132,8 @@ export const site = {
     id: "dj",
     title: "DJ TY",
     paragraphs: [
-      "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
-      "I taught myself. I practice at home, and I have mixed in a cafe.",
+      "TY, from Tae\u2011Yeon. Pronounced Tai.",
+      "Self-taught. Home, and a cafe.",
     ],
     green: {
       src: `${assetBase}/media/dj-green.jpg`,
@@ -227,15 +228,15 @@ export const site = {
   work: {
     id: "work",
     title: "Work",
-    paragraphs: ["On weekends I clean a gym. It’s a janitorial job."],
+    paragraphs: ["On weekends I clean a gym."],
   },
   about: {
     id: "about",
     title: "About",
     paragraphs: [
-      "I’m Ashton. I live in Seoul. I lived in Mountain View, California. I speak English and Korean.",
-      "I started Abibu, and I run it. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
-      "On weekends I clean a gym. It’s a janitorial job.",
+      "Ashton. Seoul. Before that, Mountain View. English and Korean.",
+      "I started Abibu, and I run it. Fatherhood and masculinity.",
+      "On weekends I clean a gym.",
     ],
   },
 } as const;

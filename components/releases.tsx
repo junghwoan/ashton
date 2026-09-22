@@ -22,7 +22,7 @@ function playerSrc(albumSlug: string, trackSlug: string | null) {
   return `https://audiomack.com/embed/${path}?background=0`;
 }
 
-function Shelf({ label, children }: { label: string; children: ReactNode }) {
+function Shelf({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,11 +44,8 @@ function Shelf({ label, children }: { label: string; children: ReactNode }) {
   }, []);
 
   return (
-    <div className="shelf-block">
-      <p className="kicker">{label}</p>
-      <div className="shelf" ref={ref} role="list">
-        {children}
-      </div>
+    <div className="shelf" ref={ref}>
+      {children}
     </div>
   );
 }
@@ -63,7 +60,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
     document.querySelectorAll<HTMLElement>(".shelf").forEach((shelf) => {
       const selected = shelf.querySelector<HTMLElement>("[aria-pressed='true']");
       if (!selected) return;
-      const left = selected.offsetLeft - (shelf.clientWidth - selected.offsetWidth) / 2;
+      const left = selected.offsetLeft - 8;
       shelf.scrollTo({ left: Math.max(0, left), behavior: reduce ? "auto" : "smooth" });
     });
   }, [currentId, trackSlug]);
@@ -75,23 +72,27 @@ export function Releases({ items }: { items: readonly Release[] }) {
     current.tracks.find((track) => track.slug === trackSlug)?.title ?? current.title;
 
   return (
-    <div className="releases">
-      <Shelf label="Volumes">
+    <div className="audio-block" id="player">
+      <Shelf>
         {items.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            role="listitem"
-            className={item.id === current.id ? "is-on" : undefined}
-            aria-pressed={item.id === current.id}
-            onClick={() => {
-              setCurrentId(item.id);
-              setTrackSlug(null);
-            }}
-          >
-            <img src={item.cover} alt={item.alt} width={item.width} height={item.height} />
-            <span>{item.title}</span>
-          </button>
+          <article key={item.id} className={item.id === current.id ? "disc is-on" : "disc"}>
+            <button
+              type="button"
+              aria-pressed={item.id === current.id && trackSlug === null}
+              onClick={() => {
+                setCurrentId(item.id);
+                setTrackSlug(null);
+              }}
+            >
+              <span className="disc-art">
+                <img src={item.cover} alt="" width={92} height={92} />
+                <span className="vinyl" aria-hidden="true" />
+              </span>
+              <span className="disc-title">{item.title}</span>
+              <span className="disc-year">(2026)</span>
+              <span className="disc-line">Composed and mixed by DJ TY.</span>
+            </button>
+          </article>
         ))}
       </Shelf>
       <iframe
@@ -101,15 +102,15 @@ export function Releases({ items }: { items: readonly Release[] }) {
         title={playingTitle}
         allow="autoplay; clipboard-write; encrypted-media; fullscreen"
       />
-      <Shelf label="Tracks">
-        <button type="button" role="listitem" aria-pressed={trackSlug === null} onClick={() => setTrackSlug(null)}>
+      <Shelf>
+        <button type="button" className="track" aria-pressed={trackSlug === null} onClick={() => setTrackSlug(null)}>
           {current.title}
         </button>
         {current.tracks.map((track) => (
           <button
             key={track.slug}
             type="button"
-            role="listitem"
+            className="track"
             aria-pressed={track.slug === trackSlug}
             onClick={() => setTrackSlug(track.slug)}
           >

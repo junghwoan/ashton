@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Figure } from "@/components/figure";
-import { Frame } from "@/components/frame";
+import Link from "next/link";
+import { Photos } from "@/components/photos";
 import { Releases } from "@/components/releases";
+import { Frame } from "@/components/frame";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -9,92 +10,141 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
+const letters = ["D", "J", ".", "T", "Y"];
+
+const photos = [
+  site.dj.green,
+  site.dj.portrait,
+  site.dj.portrait2,
+  site.dj.deck,
+  site.dj.deck2,
+  site.dj.screen,
+  site.dj.screen2,
+  ...site.pictures.shots,
+];
+
 export default function Page() {
   return (
     <Frame>
-      <section className="hero" id="top">
-        <div className="wrap">
-          <p className="kicker">Bedroom DJ</p>
-          <h1 className="wordmark">DJ TY</h1>
-          <p className="genres">R&amp;B · American pop · House</p>
+      <header className="rf-head">
+        <h1 className="rf-name" aria-label="DJ TY">
+          {letters.map((letter, index) => (
+            <span key={`${letter}-${index}`}>{letter}</span>
+          ))}
+        </h1>
+        <div className="rf-aside">
+          <p>Bedroom DJ. R&amp;B, American pop, house.</p>
+          <Link className="rf-btn" href="/about">
+            about
+          </Link>
         </div>
+      </header>
+
+      <div className="rf-portrait">
+        <img
+          src={site.dj.portrait.src}
+          alt={site.dj.portrait.alt}
+          width={site.dj.portrait.width}
+          height={site.dj.portrait.height}
+        />
+        <div className="rf-cards">
+          <a className="rf-card" href="#audio">
+            <i />
+            <small>latest release</small>
+            <strong>Vol.5 Time of Flow</strong>
+            <span>Reading Portal. Composed and mixed by DJ TY.</span>
+          </a>
+          <a className="rf-card" href="#writing">
+            <i />
+            <small>note</small>
+            <strong>Listening is Reading.</strong>
+            <span>My uncle inspired it. I released the volumes.</span>
+          </a>
+          <a className="rf-card" href="#visual">
+            <i />
+            <small>practice</small>
+            <strong>At home.</strong>
+            <span>Self-taught. The set is in the room.</span>
+          </a>
+        </div>
+      </div>
+
+      <section className="pillars" aria-label="Sections">
+        <a href="#audio">
+          <b>A U D I O</b>
+          <p>The volumes.</p>
+          <span>view all</span>
+        </a>
+        <a href="#writing">
+          <b>W R I T T E N</b>
+          <p>Notes.</p>
+          <span>view all</span>
+        </a>
+        <a href="#visual">
+          <b>V I S U A L</b>
+          <p>Photos.</p>
+          <span>view all</span>
+        </a>
       </section>
 
-      <section className="chapter play" aria-label="Practice footage">
-        <div className="wrap">
-          <figure className="figure video-block">
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster={site.dj.video.poster}
-              width={720}
-              height={1280}
-            >
-              <source src={site.dj.video.src} type="video/mp4" />
-            </video>
-            <figcaption>{site.dj.video.caption}</figcaption>
-          </figure>
-        </div>
+      <section className="rf-section" id="audio">
+        <Releases items={site.portal.releases} />
       </section>
 
-      <section className="chapter" id={site.research.id} aria-labelledby="research-title">
-        <div className="wrap">
-          <h2 id="research-title">{site.research.title}</h2>
-          <div className="copy">
-            {site.research.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
+      <section className="rf-section writing" id="writing">
+        <article>
+          <span>(01)</span>
+          <small>music</small>
+          <h2>Reading Portal</h2>
+          {site.portal.origin.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <p className="read-line">
+            {site.portal.states.map((state) => state.name).join(". ")}.
+          </p>
+        </article>
+        <article>
+          <span>(02)</span>
+          <small>research</small>
+          <h2>{site.research.title}</h2>
+          {site.research.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </article>
+        <article>
+          <span>(03)</span>
+          <small>practice</small>
+          <h2>DJ TY</h2>
+          {site.dj.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </article>
+        <article>
+          <span>(04)</span>
+          <small>work</small>
+          <h2>{site.work.title}</h2>
+          {site.work.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <p>{site.abibu.paragraphs[0]}</p>
+        </article>
       </section>
 
-      <section className="chapter" id={site.portal.id} aria-labelledby="portal-title">
-        <div className="wrap">
-          <h2 id="portal-title">{site.portal.title}</h2>
-          <Releases items={site.portal.releases} />
-          <div className="copy">
-            {site.portal.origin.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <ol className="read">
-            {site.portal.states.map((state) => (
-              <li key={state.letter}>
-                <span>{state.letter}</span>
-                <div>
-                  <strong>{state.name}</strong>
-                  <p>{state.note}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="chapter" id="practice" aria-labelledby="dj-title">
-        <div className="wrap">
-          <h2 id="dj-title">DJ TY</h2>
-          <p className="kicker">Practice</p>
-          <div className="copy hero-copy">
-            {site.dj.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <div className="stack">
-            <Figure shot={site.dj.green} />
-            <Figure shot={site.dj.portrait} />
-            <div className="pair">
-              <Figure shot={site.dj.portrait2} />
-              <Figure shot={site.dj.deck} />
-            </div>
-            <div className="pair">
-              <Figure shot={site.dj.deck2} />
-              <Figure shot={site.dj.screen} />
-            </div>
-            <Figure shot={site.dj.screen2} />
-          </div>
-        </div>
+      <section className="rf-section" id="visual">
+        <figure className="practice">
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster={site.dj.video.poster}
+            width={720}
+            height={1280}
+          >
+            <source src={site.dj.video.src} type="video/mp4" />
+          </video>
+          <figcaption>{site.dj.video.caption}</figcaption>
+        </figure>
+        <Photos shots={photos} />
       </section>
     </Frame>
   );

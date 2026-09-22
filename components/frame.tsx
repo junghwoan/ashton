@@ -9,7 +9,7 @@ export function Frame({ children }: { children: React.ReactNode }) {
       </a>
       <header className="nav">
         <Link className="brand" href="/">
-          DJ TY
+          dj.ty
         </Link>
         <nav aria-label="Pages">
           <div className="nav-links">
@@ -24,8 +24,8 @@ export function Frame({ children }: { children: React.ReactNode }) {
       <main id="content">{children}</main>
       <footer>
         <div className="wrap footer-inner">
-          <span>DJ TY</span>
-          <Link href="/about">About</Link>
+          <span>dj.ty</span>
+          <Link href="/about">about</Link>
         </div>
       </footer>
     </>
