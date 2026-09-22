@@ -74,6 +74,13 @@ export const site = {
       "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
       "I taught myself. I practice at home, and I have mixed in a cafe.",
     ],
+    green: {
+      src: `${assetBase}/media/dj-green.jpg`,
+      width: 1344,
+      height: 1792,
+      alt: "Me at home under green light, headphones on, hands up over a white Pioneer DJ controller. The shot is blurred from moving.",
+      caption: "Green light.",
+    },
     portrait: {
       src: `${assetBase}/media/dj-portrait.jpg`,
       width: 1086,

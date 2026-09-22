@@ -82,6 +82,7 @@ export default function Page() {
             ))}
           </div>
           <div className="stack">
+            <Figure shot={site.dj.green} />
             <Figure shot={site.dj.portrait} />
             <div className="pair">
               <Figure shot={site.dj.portrait2} />
