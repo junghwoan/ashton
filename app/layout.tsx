@@ -18,7 +18,16 @@ const serif = Newsreader({
   display: "swap",
 });
 
-const metadataBase = new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
+function metadataBaseUrl() {
+  const url = new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  if (base && (url.pathname === base || url.pathname === `${base}/`)) {
+    url.pathname = "/";
+  }
+  return url;
+}
+
+const metadataBase = metadataBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase,
