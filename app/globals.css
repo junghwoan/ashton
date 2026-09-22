@@ -1186,6 +1186,14 @@ html[data-theme="dark"] body {
   letter-spacing: -0.02em;
 }
 
+.portal-try {
+  margin: 8px 0 14px;
+  max-width: 16ch;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
 .portal-copy {
   display: grid;
   gap: 6px;

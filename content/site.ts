@@ -42,10 +42,11 @@ export const site = {
     title: "Reading Portal",
     line: "Listening is Reading.",
     enter: "Enter the page, let the book read you.",
+    attempt: "A project I wanted to try.",
     origin: [
-      "My uncle inspired it.",
-      "Music before the page, and while you are in it.",
-      "I compose and mix with AI. I released the volumes. Copyright is mine.",
+      "My uncle inspired the idea.",
+      "I wanted music in the room before a page, and while you are in it.",
+      "I compose and mix with AI. I released the volumes. Copyright is mine. I'll keep trying.",
     ],
     states: [
       { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },

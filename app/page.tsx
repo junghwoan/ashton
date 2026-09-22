@@ -82,6 +82,7 @@ export default function Page() {
           <h2>{site.portal.line}</h2>
           <p className="portal-enter">{site.portal.enter}</p>
         </div>
+        <p className="portal-try">{site.portal.attempt}</p>
         <div className="portal-copy">
           {site.portal.origin.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
