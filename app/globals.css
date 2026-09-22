@@ -793,9 +793,130 @@ footer {
   padding: 28px var(--gutter) 12px;
 }
 
-.audio-block .shelf {
-  gap: 28px;
-  padding-bottom: 18px;
+.sound-toggle {
+  min-height: 32px;
+  padding: 2px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sound-toggle.is-on {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.audio-stage {
+  position: relative;
+  height: 320vh;
+}
+
+.audio-stage.is-plain {
+  height: auto;
+}
+
+.audio-sticky {
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 var(--gutter);
+}
+
+.audio-sticky .release-player {
+  height: 200px;
+  margin-top: 12px;
+}
+
+.audio-stage.is-plain .audio-sticky {
+  position: static;
+  height: auto;
+  overflow: visible;
+}
+
+.audio-rail {
+  display: flex;
+  gap: 36px;
+  width: max-content;
+  padding-left: calc(50vw - 115px);
+  padding-right: calc(50vw - 115px);
+  will-change: transform;
+}
+
+.audio-stage.is-plain .audio-rail {
+  overflow-x: auto;
+  padding-left: 0;
+  padding-bottom: 12px;
+}
+
+.audio-tracks {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.sound-note {
+  margin: 8px 0;
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
+.gallery-stage {
+  position: relative;
+  height: min(62vh, 560px);
+  overflow: hidden;
+}
+
+.gallery-stage figure {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(46vw, 380px);
+  margin: 0;
+  transition: transform 560ms ease, opacity 560ms ease;
+}
+
+.gallery-stage button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.gallery-stage img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.gallery-stage figcaption {
+  margin-top: 8px;
+  color: var(--quiet);
+  font-size: 0.9rem;
+}
+
+.gallery-stage figure.is-on {
+  width: min(52vw, 440px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-stage figure {
+    transition: none;
+  }
 }
 
 .disc {

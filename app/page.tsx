@@ -87,9 +87,7 @@ export default function Page() {
         </a>
       </section>
 
-      <section className="rf-section" id="audio">
-        <Releases items={site.portal.releases} />
-      </section>
+      <Releases items={site.portal.releases} />
 
       <section className="rf-section writing" id="writing">
         <article>
