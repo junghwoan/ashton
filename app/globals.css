@@ -545,7 +545,7 @@ a {
 }
 
 .figure figcaption {
-  margin-top: 10px;
+  margin-top: 16px;
   color: var(--quiet);
   font-size: 0.9rem;
   letter-spacing: 0;
@@ -714,9 +714,10 @@ footer {
 .rf-portrait {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 28px 48px;
+  gap: 28px 64px;
   align-items: end;
-  margin-top: 36px;
+  margin-top: clamp(48px, 8vh, 88px);
+  margin-bottom: clamp(64px, 10vh, 112px);
   padding: 0 var(--gutter);
 }
 
@@ -786,7 +787,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  padding: 48px var(--gutter) 12px;
+  padding: 8px var(--gutter) clamp(56px, 8vh, 88px);
 }
 
 .pillars a {
@@ -817,7 +818,7 @@ footer {
 }
 
 .rf-section {
-  padding: 28px var(--gutter) 12px;
+  padding: clamp(56px, 9vh, 104px) var(--gutter) 8px;
 }
 
 .sound-toggle {
@@ -1085,12 +1086,16 @@ html[data-theme="dark"] body {
   font-size: 0.95rem;
 }
 
+.look {
+  margin: 0 0 clamp(64px, 9vh, 104px);
+}
+
 .look-meta {
   display: grid;
   grid-template-columns: 2.5rem 1fr 2.5rem;
   align-items: baseline;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 22px;
   font-family: var(--sans);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
@@ -1109,10 +1114,11 @@ html[data-theme="dark"] body {
 
 .look-rail {
   display: flex;
-  align-items: flex-end;
-  gap: 28px;
+  align-items: center;
+  gap: 36px;
   height: min(68vh, 640px);
   max-width: 100%;
+  padding: 8px 0 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -1250,9 +1256,9 @@ html[data-theme="dark"] body {
 
 .portal-covers {
   display: flex;
-  gap: 14px;
+  gap: 18px;
   max-width: 100%;
-  margin-bottom: 48px;
+  margin: clamp(36px, 6vh, 64px) 0 clamp(72px, 10vh, 112px);
   overflow-x: auto;
 }
 
@@ -1582,8 +1588,8 @@ html[data-theme="dark"] body {
 .room-decks {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 20px 28px;
+  margin-bottom: clamp(64px, 9vh, 104px);
 }
 
 .room-decks img {
@@ -1592,7 +1598,7 @@ html[data-theme="dark"] body {
 }
 
 .rail-label {
-  margin: 8px 0 10px;
+  margin: 0 0 18px;
   font-size: 1.33rem;
 }
 
@@ -1690,6 +1696,20 @@ html[data-theme="dark"] body {
   .room,
   .room-decks {
     grid-template-columns: 1fr;
+  }
+
+  .rf-portrait {
+    margin-top: 36px;
+    margin-bottom: 48px;
+  }
+
+  .rf-section {
+    padding-top: 48px;
+  }
+
+  .look,
+  .room-decks {
+    margin-bottom: 48px;
   }
 
   .look-rail {
