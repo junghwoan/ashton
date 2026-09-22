@@ -41,7 +41,7 @@ export const site = {
     title: "Reading Portal",
     origin: [
       "My uncle inspired Reading Portal. His line is “Listening is Reading.”",
-      "I make the music with AI, and I released these volumes myself. I’m going to keep experimenting, so the music can be a good background for people, and a good influence.",
+      "I make the music with AI. I composed and mixed it as DJ TY, and I released these volumes myself. All of the copyright is mine. I’m going to keep experimenting, so the music can be a good background for people, and a good influence.",
     ],
     states: [
       { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },
