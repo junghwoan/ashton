@@ -521,15 +521,15 @@ a {
 .figure video {
   display: block;
   width: 100%;
-  background: #1b1a17;
+  background: transparent;
 }
 
 .figure figcaption {
   margin-top: 10px;
   color: var(--quiet);
-  font-size: 0.8125rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .dj {
@@ -695,25 +695,25 @@ footer {
 }
 
 .rf-portrait {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, 420px) minmax(0, 1fr);
+  gap: 28px 40px;
+  align-items: end;
   margin-top: 28px;
+  padding: 0 var(--gutter);
 }
 
 .rf-portrait > img {
   display: block;
   width: 100%;
-  height: min(78vh, 820px);
-  object-fit: cover;
-  object-position: center 18%;
+  height: auto;
 }
 
 .rf-cards {
-  position: absolute;
-  left: max(16px, var(--gutter));
-  bottom: 6vh;
+  position: static;
   display: grid;
   gap: 10px;
-  width: min(300px, 72vw);
+  width: min(360px, 100%);
 }
 
 .rf-card {
@@ -724,12 +724,9 @@ footer {
   text-decoration: none;
 }
 
-.rf-card:nth-child(2) {
-  margin-left: 18px;
-}
-
+.rf-card:nth-child(2),
 .rf-card:nth-child(3) {
-  margin-left: 36px;
+  margin-left: 0;
 }
 
 .rf-card i {
@@ -1019,6 +1016,52 @@ footer {
   margin: 8px 0;
   color: var(--quiet);
   font-size: 0.95rem;
+}
+
+.gallery-frame {
+  margin: 0;
+}
+
+.gallery-frame img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 72vh;
+  height: auto;
+}
+
+.gallery-frame figcaption {
+  margin-top: 8px;
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
+.filmstrip {
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.filmstrip button {
+  flex: 0 0 auto;
+  height: 76px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+.filmstrip button[aria-pressed="true"] {
+  border-color: var(--ink);
+}
+
+.filmstrip img {
+  display: block;
+  height: 74px;
+  width: auto;
 }
 
 .gallery-stage {
@@ -1347,6 +1390,7 @@ footer {
 
 @media (max-width: 800px) {
   .rf-head,
+  .rf-portrait,
   .pillars,
   .writing,
   .writing-grid,
@@ -1357,21 +1401,6 @@ footer {
 
   .sleeve-art {
     width: min(100%, 280px);
-  }
-
-  .rf-cards {
-    position: static;
-    width: auto;
-    margin: 12px var(--gutter) 0;
-  }
-
-  .rf-card:nth-child(2),
-  .rf-card:nth-child(3) {
-    margin-left: 0;
-  }
-
-  .rf-portrait > img {
-    height: 62vh;
   }
 
   .release-player {

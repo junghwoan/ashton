@@ -7,37 +7,33 @@ type Shot = { src: string; alt: string; width: number; height: number; caption: 
 export function Photos({ shots }: { shots: readonly Shot[] }) {
   const [active, setActive] = useState(0);
   const count = shots.length;
+  const shot = shots[active];
 
   function move(step: number) {
     setActive((index) => (index + step + count) % count);
   }
 
+  if (!shot) return null;
+
   return (
     <div className="gallery">
-      <div className="gallery-stage">
-        {shots.map((shot, index) => {
-          let diff = index - active;
-          if (diff > count / 2) diff -= count;
-          if (diff < -count / 2) diff += count;
-          const hidden = Math.abs(diff) > 4;
-          return (
-            <figure
-              key={shot.src}
-              className={index === active ? "is-on" : undefined}
-              style={{
-                transform: hidden ? "translate3d(0,-50%,0) scale(0.8)" : `translate3d(${diff * 18}rem, -50%, 0)`,
-                opacity: hidden ? 0 : index === active ? 1 : 0.72,
-                zIndex: 10 - Math.abs(diff),
-                pointerEvents: hidden ? "none" : "auto",
-              }}
-            >
-              <button type="button" onClick={() => setActive(index)} aria-pressed={index === active}>
-                <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
-                <figcaption>{shot.caption}</figcaption>
-              </button>
-            </figure>
-          );
-        })}
+      <figure className="gallery-frame">
+        <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
+        <figcaption>{shot.caption}</figcaption>
+      </figure>
+      <div className="filmstrip" role="list">
+        {shots.map((item, index) => (
+          <button
+            key={item.src}
+            type="button"
+            role="listitem"
+            aria-pressed={index === active}
+            aria-label={item.caption}
+            onClick={() => setActive(index)}
+          >
+            <img src={item.src} alt="" width={item.width} height={item.height} />
+          </button>
+        ))}
       </div>
       <div className="visual-nav">
         <button type="button" onClick={() => move(-1)}>
