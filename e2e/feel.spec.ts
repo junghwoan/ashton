@@ -36,5 +36,9 @@ for (const width of widths) {
     await expect(page.locator("iframe.release-player")).toHaveCount(0);
     await expect(page.getByText("Pronounced Tai.")).toBeVisible();
     await expect(page.getByText("five, 2026")).toBeVisible();
+    await page.getByRole("button", { name: "Night" }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    const nightBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    expect(nightBg).not.toBe("rgb(240, 238, 235)");
   });
 }

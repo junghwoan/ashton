@@ -14,6 +14,17 @@
   color-scheme: light;
 }
 
+html[data-theme="dark"] {
+  --bg: #100e0c;
+  --bg-dj: #1a1612;
+  --ink: #f4efe6;
+  --muted: #d8d0c4;
+  --quiet: #b7aea1;
+  --line: rgba(244, 239, 230, 0.16);
+  --accent: #f4efe6;
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
@@ -731,7 +742,7 @@ footer {
 .rf-card {
   display: block;
   padding: 14px 16px 16px;
-  background: rgba(240, 238, 235, 0.94);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   color: var(--ink);
   text-decoration: none;
 }
@@ -750,7 +761,7 @@ footer {
   height: 8px;
   margin-bottom: 10px;
   border-radius: 50%;
-  background: #111;
+  background: var(--ink);
 }
 
 .rf-card small,
@@ -828,9 +839,32 @@ footer {
   cursor: pointer;
 }
 
-.sound-toggle.is-on {
+.sound-toggle.is-on,
+.theme-toggle.is-on {
   background: var(--ink);
   color: var(--bg);
+}
+
+.theme-toggle {
+  min-height: 32px;
+  padding: 2px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse at 50% -10%, #241c16 0%, var(--bg) 46%);
+}
+
+html[data-theme="dark"] .rf-name {
+  letter-spacing: 0.035em;
 }
 
 .audio-stage {
@@ -871,7 +905,7 @@ footer {
   z-index: 0;
   margin: 0;
   transform: translateX(-50%);
-  color: rgba(0, 0, 0, 0.07);
+  color: color-mix(in srgb, var(--ink) 8%, transparent);
   font-size: clamp(3rem, 8vw, 7.5rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
@@ -1418,7 +1452,7 @@ footer {
   height: 8px;
   margin-right: 6px;
   border-radius: 50%;
-  background: #111;
+  background: var(--ink);
   vertical-align: middle;
 }
 

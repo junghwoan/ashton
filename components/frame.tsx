@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SoundToggle } from "@/components/sound";
+import { ThemeToggle } from "@/components/theme";
 import { site } from "@/content/site";
 
 export function Frame({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,7 @@ export function Frame({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            <ThemeToggle />
             <SoundToggle />
           </div>
         </nav>
