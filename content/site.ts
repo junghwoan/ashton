@@ -40,7 +40,8 @@ export const site = {
     id: "reading",
     title: "Reading Portal",
     origin: [
-      "My uncle started Reading Portal. I didn’t. His line is “Listening is Reading.” Music sets the room before you read, and while you read. “Enter the page, let the book read you.” I make the music. These are the volumes that are out.",
+      "My uncle inspired Reading Portal. His line is “Listening is Reading.”",
+      "I make the music with AI, and I released these volumes myself. I’m going to keep experimenting, so the music can be a good background for people, and a good influence.",
     ],
     states: [
       { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },
