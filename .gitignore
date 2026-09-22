@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.vercel
+*.log
+assets-original
+_drive.html
+*.mp4.html
+_*.py
+_*.mjs
+_*.html
+.DS_Store
+qa
+server.log
+.qa-tools
