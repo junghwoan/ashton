@@ -16,9 +16,9 @@ export const site = {
   name: "Ashton",
   title: "Ashton — Personal Portfolio",
   description:
-    "Ashton’s record of questions about how people live together: Abibu, research on South Korea’s birth rate, and DJ TY.",
+    "I ask how people live together. This page is Abibu, my research on South Korea’s birth rate, and DJ TY.",
   hero: {
-    lede: "Questions about how people live together.",
+    lede: "I ask how people live together.",
     interests: "Sociology, social policy, and psychology.",
   },
   nav: [
@@ -29,7 +29,7 @@ export const site = {
     { href: "#about", label: "About" },
   ],
   index: [
-    { href: "#abibu", num: "01", label: "Abibu", note: "A conversation group he started" },
+    { href: "#abibu", num: "01", label: "Abibu", note: "A conversation group I started" },
     { href: "#research", num: "02", label: "Research", note: "Birth rate, family, loneliness" },
     { href: "#dj", num: "03", label: "DJ TY", note: "Self-taught practice" },
     { href: "#work", num: "04", label: "Work", note: "Weekends at a gym" },
@@ -40,7 +40,7 @@ export const site = {
     title: "Abibu",
     statement: "A place for conversations men often avoid.",
     paragraphs: [
-      "Ashton started Abibu and runs it. He facilitates the conversations. The subjects are fatherhood, masculinity, and men talking about things they usually keep to themselves.",
+      "I started Abibu, and I run it. I facilitate the conversations. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
     ],
   },
   research: {
@@ -49,34 +49,34 @@ export const site = {
     title: "Research",
     question: "Why does South Korea’s birth rate keep falling?",
     paragraphs: [
-      "The question began as curiosity. It became an AP Research project on the birth rate, family structure, and financial pressure.",
-      "A separate, collaborative project looks at male loneliness in Korea. It sits beside the same concerns — fatherhood, masculinity, and isolation — and it is not a result of the birth-rate paper.",
+      "I started from a question I had. It became my AP Research project, on the birth rate, family structure, and financial pressure.",
+      "I am also part of a separate project on male loneliness in Korea. It sits next to the same concerns — fatherhood, masculinity, and isolation — and it is not a result of the birth-rate paper.",
     ],
     rows: [
-      { label: "Starting point", value: "A personal question about the birth rate" },
+      { label: "Starting point", value: "A question I had about the birth rate" },
       { label: "AP Research", value: "Birth rate, family structure, financial pressure" },
-      { label: "Alongside it", value: "Collaborative research on male loneliness in Korea" },
+      { label: "Alongside it", value: "Collaborative research I’m part of, on male loneliness in Korea" },
     ],
   },
   dj: {
     id: "dj",
     num: "03",
     title: "DJ TY",
-    statement: "TY comes from Tae\u2011Yeon. He wanted it pronounced “Tai.”",
+    statement: "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
     paragraphs: [
-      "Ashton taught himself. He practices at home, and he has mixed in a cafe. The music he works in is R&B, American pop, and house.",
-      "The photographs and footage are from practice, not from a booked show.",
+      "I taught myself. I practice at home, and I have mixed in a cafe. The music I work in is R&B, American pop, and house.",
+      "The photographs and footage are from my practice, not from a booked show.",
     ],
     rows: [
-      { label: "Name", value: "TY, from Tae\u2011Yeon, said “Tai”" },
-      { label: "How", value: "Self-taught. Home practice. Mixing in a cafe." },
+      { label: "Name", value: "TY, from Tae\u2011Yeon. I say it “Tai.”" },
+      { label: "How", value: "I taught myself. I practice at home. I have mixed in a cafe." },
       { label: "Music", value: "R&B, American pop, house" },
     ],
     portrait: {
       src: `${assetBase}/media/dj-portrait.jpg`,
       width: 1086,
       height: 1448,
-      alt: "Ashton at home, wearing headphones, mixing on a white Pioneer DJ controller between two speakers.",
+      alt: "Me at home, wearing headphones, mixing on a white Pioneer DJ controller between two speakers.",
       caption: "At home.",
     },
     deck: {
@@ -84,7 +84,7 @@ export const site = {
       width: 1800,
       height: 1350,
       alt: "Home practice setup with two Pioneer CDJ players and a DJM mixer on a desk.",
-      caption: "The setup he practices on.",
+      caption: "The setup I practice on.",
     },
     screen: {
       src: `${assetBase}/media/dj-screen.jpg`,
@@ -103,17 +103,17 @@ export const site = {
     id: "work",
     num: "04",
     title: "Work",
-    statement: "On weekends, Ashton cleans a gym.",
+    statement: "On weekends, I clean a gym.",
     paragraphs: [
-      "The job is janitorial. He shows up and does the work.",
+      "The job is janitorial. I show up and do the work.",
     ],
   },
   about: {
     id: "about",
     title: "About",
     paragraphs: [
-      "Ashton lives in Seoul and has lived in Mountain View, California. He speaks English and Korean.",
-      "He is interested in sociology, social policy, and psychology, and he wants to study economics as well.",
+      "I live in Seoul, and I have lived in Mountain View, California. I speak English and Korean.",
+      "I’m interested in sociology, social policy, and psychology, and I want to study economics as well.",
     ],
   },
 } as const;
