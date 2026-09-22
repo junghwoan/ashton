@@ -117,6 +117,9 @@ export function Releases({ items }: { items: readonly Release[] }) {
   return (
     <section className={reduce ? "audio-stage is-plain" : "audio-stage"} id="audio" ref={stageRef}>
       <div className="audio-sticky">
+        <p className="audio-bg" aria-hidden="true">
+          {current.title}
+        </p>
         <div className="audio-rail" ref={railRef}>
           {items.map((item, index) => (
             <article key={item.id} className={index === active ? "disc is-on" : "disc"}>
@@ -128,6 +131,16 @@ export function Releases({ items }: { items: readonly Release[] }) {
                 <span className="disc-title">{item.title}</span>
                 <span className="disc-year">(2026)</span>
                 <span className="disc-line">Composed and mixed by DJ TY.</span>
+              </button>
+              <button
+                type="button"
+                className="rf-btn"
+                onClick={() => {
+                  chooseAlbum(index);
+                  enableSound();
+                }}
+              >
+                view album
               </button>
             </article>
           ))}

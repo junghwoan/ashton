@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Frame } from "@/components/frame";
+import { Intro } from "@/components/intro";
+import { Notes } from "@/components/notes";
 import { Photos } from "@/components/photos";
 import { Releases } from "@/components/releases";
-import { Frame } from "@/components/frame";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -26,6 +28,7 @@ const photos = [
 export default function Page() {
   return (
     <Frame>
+      <Intro />
       <header className="rf-head">
         <h1 className="rf-name" aria-label="DJ TY">
           {letters.map((letter, index) => (
@@ -89,43 +92,35 @@ export default function Page() {
 
       <Releases items={site.portal.releases} />
 
-      <section className="rf-section writing" id="writing">
-        <article>
-          <span>(01)</span>
-          <small>music</small>
-          <h2>Reading Portal</h2>
-          {site.portal.origin.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          <p className="read-line">
-            {site.portal.states.map((state) => state.name).join(". ")}.
-          </p>
-        </article>
-        <article>
-          <span>(02)</span>
-          <small>research</small>
-          <h2>{site.research.title}</h2>
-          {site.research.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </article>
-        <article>
-          <span>(03)</span>
-          <small>practice</small>
-          <h2>DJ TY</h2>
-          {site.dj.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </article>
-        <article>
-          <span>(04)</span>
-          <small>work</small>
-          <h2>{site.work.title}</h2>
-          {site.work.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          <p>{site.abibu.paragraphs[0]}</p>
-        </article>
+      <section className="rf-section" id="writing">
+        <Notes
+          notes={[
+            {
+              n: "01",
+              kind: "music",
+              title: "Reading Portal",
+              body: [...site.portal.origin, site.portal.states.map((state) => state.name).join(". ") + "."],
+            },
+            {
+              n: "02",
+              kind: "research",
+              title: site.research.title,
+              body: site.research.paragraphs,
+            },
+            {
+              n: "03",
+              kind: "practice",
+              title: "DJ TY",
+              body: site.dj.paragraphs,
+            },
+            {
+              n: "04",
+              kind: "work",
+              title: site.work.title,
+              body: [...site.work.paragraphs, site.abibu.paragraphs[0]],
+            },
+          ]}
+        />
       </section>
 
       <section className="rf-section" id="visual">
