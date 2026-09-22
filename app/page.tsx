@@ -36,19 +36,19 @@ export default function Page() {
           height={site.dj.portrait2.height}
         />
         <div className="rf-cards">
-          <a className="rf-card" href="#audio">
+          <a className="rf-card" href="#project">
             <i />
             <small>latest release</small>
             <strong>Vol.5 Time of Flow</strong>
             <span>Reading Portal. 2026.</span>
           </a>
-          <a className="rf-card" href="#writing">
+          <a className="rf-card" href="#experience">
             <i />
             <small>note</small>
             <strong>Listening is Reading.</strong>
             <span>My uncle inspired it.</span>
           </a>
-          <a className="rf-card" href="#visual">
+          <a className="rf-card" href="#daylife">
             <i />
             <small>practice</small>
             <strong>At home.</strong>
@@ -58,26 +58,26 @@ export default function Page() {
       </div>
 
       <section className="pillars" aria-label="Sections">
-        <a href="#audio">
-          <b>Audio</b>
+        <a href="#project">
+          <b>Project.</b>
           <p>The volumes.</p>
           <span>five, 2026</span>
         </a>
-        <a href="#writing">
-          <b>Written</b>
-          <p>Notes.</p>
+        <a href="#experience">
+          <b>Experience.</b>
+          <p>The notes.</p>
           <span>three</span>
         </a>
-        <a href="#visual">
-          <b>Visual</b>
-          <p>Photos.</p>
+        <a href="#daylife">
+          <b>Daylife.</b>
+          <p>The photos.</p>
           <span>eleven</span>
         </a>
       </section>
 
       <Releases items={site.portal.releases} />
 
-      <section className="rf-section portal-story" id="writing">
+      <section className="rf-section portal-story" id="experience">
         <h2>Listening is Reading.</h2>
         <div className="portal-copy">
           <p>My uncle inspired it.</p>
@@ -94,7 +94,7 @@ export default function Page() {
         </ol>
         <div className="portal-covers">
           {site.portal.releases.map((release) => (
-            <a key={release.id} href="#audio">
+            <a key={release.id} href="#project">
               <img src={release.cover} alt="" width={release.width} height={release.height} />
               <span>{release.title}</span>
             </a>
@@ -118,7 +118,7 @@ export default function Page() {
         />
       </section>
 
-      <section className="rf-section" id="visual">
+      <section className="rf-section" id="daylife">
         <div className="room-decks">
           <Figure shot={site.dj.deck} />
           <Figure shot={site.dj.deck2} />

@@ -115,7 +115,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
   const src = sound ? playerSrc(current.slug, trackSlug) : "";
 
   return (
-    <section className={reduce ? "audio-stage is-plain" : "audio-stage"} id="audio" ref={stageRef}>
+    <section className={reduce ? "audio-stage is-plain" : "audio-stage"} id="project" ref={stageRef}>
       <div className="audio-sticky">
         <p className="audio-bg" aria-hidden="true">
           {current.title}

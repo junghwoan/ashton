@@ -18,9 +18,9 @@ export const site = {
   title: "DJ TY",
   description: "DJ TY. Bedroom DJ. R&B, American pop, and house.",
   nav: [
-    { href: "/#audio", label: "audio" },
-    { href: "/#writing", label: "writing" },
-    { href: "/#visual", label: "visual" },
+    { href: "/#project", label: "Project." },
+    { href: "/#experience", label: "Experience." },
+    { href: "/#daylife", label: "Daylife." },
     { href: "/about", label: "about" },
   ],
   abibu: {
