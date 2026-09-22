@@ -7,5 +7,9 @@ function origin() {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: origin(), changeFrequency: "monthly", priority: 1 }];
+  const root = origin().replace(/\/$/, "");
+  return [
+    { url: `${root}/`, changeFrequency: "monthly", priority: 1 },
+    { url: `${root}/about/`, changeFrequency: "monthly", priority: 0.4 },
+  ];
 }

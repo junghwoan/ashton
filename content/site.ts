@@ -13,16 +13,13 @@
 const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const site = {
-  name: "Ashton",
-  title: "Ashton",
-  description: "Ashton. Abibu, research, DJ TY, pictures, and a weekend job.",
+  name: "DJ TY",
+  person: "Ashton",
+  title: "DJ TY",
+  description: "DJ TY. Amateur. I taught myself. R&B, American pop, and house.",
   nav: [
-    { href: "#abibu", label: "Abibu" },
-    { href: "#research", label: "Research" },
-    { href: "#dj", label: "DJ TY" },
-    { href: "#work", label: "Work" },
-    { href: "#pictures", label: "Pictures" },
-    { href: "#about", label: "About" },
+    { href: "/", label: "Music" },
+    { href: "/about", label: "About" },
   ],
   abibu: {
     id: "abibu",
@@ -44,7 +41,7 @@ export const site = {
     title: "DJ TY",
     paragraphs: [
       "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
-      "I taught myself. I practice at home, and I have mixed in a cafe. I mix R&B, American pop, and house.",
+      "I taught myself. I practice at home, and I have mixed in a cafe.",
     ],
     portrait: {
       src: `${assetBase}/media/dj-portrait.jpg`,
@@ -138,7 +135,10 @@ export const site = {
     id: "about",
     title: "About",
     paragraphs: [
-      "I live in Seoul. I lived in Mountain View, California. I speak English and Korean.",
+      "I’m Ashton. I live in Seoul. I lived in Mountain View, California. I speak English and Korean.",
+      "I started Abibu, and I run it. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
+      "I’m looking at why South Korea’s birth rate keeps falling, and at family structure and financial pressure. I’m also in a separate project on male loneliness in Korea.",
+      "On weekends I clean a gym. It’s a janitorial job.",
     ],
   },
 } as const;

@@ -123,10 +123,36 @@ a {
 
 .wordmark {
   margin: 0;
-  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  font-size: clamp(4.6rem, 16vw, 10.5rem);
   font-weight: 500;
   line-height: 0.8;
   letter-spacing: -0.06em;
+}
+
+.kicker {
+  margin: 0 0 14px;
+  color: var(--quiet);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-copy {
+  margin-top: 32px;
+}
+
+.genres {
+  margin: 22px 0 0;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  letter-spacing: -0.03em;
+}
+
+.about-page h1 {
+  margin: 0 0 24px;
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
 }
 
 .lede {

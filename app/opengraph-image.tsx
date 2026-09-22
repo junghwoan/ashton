@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Ashton";
+export const alt = "DJ TY";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,8 +21,13 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-          <div style={{ fontSize: 128, lineHeight: 0.86, letterSpacing: "-0.05em" }}>
-            Ashton
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ fontSize: 28, letterSpacing: "0.16em", textTransform: "uppercase", color: "#b3ad9f" }}>
+              Amateur
+            </div>
+            <div style={{ fontSize: 120, lineHeight: 0.86, letterSpacing: "-0.05em", marginTop: 16 }}>
+              DJ TY
+            </div>
           </div>
         </div>
       </div>
