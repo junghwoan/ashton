@@ -118,12 +118,12 @@ a {
 }
 
 .hero {
-  padding: clamp(72px, 14vh, 160px) 0 clamp(56px, 8vh, 104px);
+  padding: clamp(40px, 7vh, 80px) 0 clamp(28px, 4vh, 48px);
 }
 
 .wordmark {
   margin: 0;
-  font-size: clamp(4.4rem, 16vw, 11.5rem);
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
   font-weight: 500;
   line-height: 0.8;
   letter-spacing: -0.06em;
@@ -188,7 +188,7 @@ a {
 }
 
 .chapter {
-  padding: clamp(80px, 12vw, 148px) 0;
+  padding: clamp(56px, 8vw, 96px) 0;
   border-top: 1px solid var(--line);
 }
 
@@ -205,7 +205,7 @@ a {
 .chapter h2,
 .about h2 {
   margin: 0 0 28px;
-  font-size: clamp(3.4rem, 8.4vw, 6.75rem);
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.05em;
@@ -357,10 +357,9 @@ footer {
 
   .nav-links {
     justify-content: flex-start;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0 14px;
     max-width: 100%;
-    overflow-x: auto;
   }
 
   .nav-links a {
@@ -383,7 +382,7 @@ footer {
   }
 
   .wordmark {
-    font-size: clamp(3.6rem, 20vw, 5.5rem);
+    font-size: clamp(3.2rem, 16vw, 4.5rem);
   }
 }
 

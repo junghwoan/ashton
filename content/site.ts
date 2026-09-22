@@ -14,13 +14,8 @@ const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const site = {
   name: "Ashton",
-  title: "Ashton — Personal Portfolio",
-  description:
-    "I ask how people live together. This page is Abibu, my research on South Korea’s birth rate, and DJ TY.",
-  hero: {
-    lede: "I ask how people live together.",
-    interests: "Sociology, social policy, and psychology.",
-  },
+  title: "Ashton",
+  description: "Ashton. Abibu, research, DJ TY, pictures, and a weekend job.",
   nav: [
     { href: "#abibu", label: "Abibu" },
     { href: "#research", label: "Research" },
@@ -29,49 +24,27 @@ export const site = {
     { href: "#pictures", label: "Pictures" },
     { href: "#about", label: "About" },
   ],
-  index: [
-    { href: "#abibu", num: "01", label: "Abibu", note: "A conversation group I started" },
-    { href: "#research", num: "02", label: "Research", note: "Birth rate, family, loneliness" },
-    { href: "#dj", num: "03", label: "DJ TY", note: "Self-taught practice" },
-    { href: "#work", num: "04", label: "Work", note: "Weekends at a gym" },
-  ],
   abibu: {
     id: "abibu",
-    num: "01",
     title: "Abibu",
-    statement: "A place for conversations men often avoid.",
     paragraphs: [
-      "I started Abibu, and I run it. I facilitate the conversations. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
+      "I started Abibu, and I run it. We talk about fatherhood, masculinity, and things men usually keep to themselves.",
     ],
   },
   research: {
     id: "research",
-    num: "02",
     title: "Research",
-    question: "Why does South Korea’s birth rate keep falling?",
     paragraphs: [
-      "I started from a question I had. It became my AP Research project, on the birth rate, family structure, and financial pressure.",
-      "I am also part of a separate project on male loneliness in Korea. It sits next to the same concerns — fatherhood, masculinity, and isolation — and it is not a result of the birth-rate paper.",
-    ],
-    rows: [
-      { label: "Starting point", value: "A question I had about the birth rate" },
-      { label: "AP Research", value: "Birth rate, family structure, financial pressure" },
-      { label: "Alongside it", value: "Collaborative research I’m part of, on male loneliness in Korea" },
+      "I’m looking at why South Korea’s birth rate keeps falling. It’s about the birth rate, family structure, and financial pressure.",
+      "I’m also in a separate project on male loneliness in Korea.",
     ],
   },
   dj: {
     id: "dj",
-    num: "03",
     title: "DJ TY",
-    statement: "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
     paragraphs: [
-      "I taught myself. I practice at home, and I have mixed in a cafe. The music I work in is R&B, American pop, and house.",
-      "The photographs and footage are from my practice, not from a booked show.",
-    ],
-    rows: [
-      { label: "Name", value: "TY, from Tae\u2011Yeon. I say it “Tai.”" },
-      { label: "How", value: "I taught myself. I practice at home. I have mixed in a cafe." },
-      { label: "Music", value: "R&B, American pop, house" },
+      "TY comes from Tae\u2011Yeon. I wanted it pronounced “Tai.”",
+      "I taught myself. I practice at home, and I have mixed in a cafe. I mix R&B, American pop, and house.",
     ],
     portrait: {
       src: `${assetBase}/media/dj-portrait.jpg`,
@@ -123,9 +96,8 @@ export const site = {
   },
   pictures: {
     id: "pictures",
-    num: "05",
     title: "Pictures",
-    paragraphs: ["From dinner, from outside, and from a basketball game."],
+    paragraphs: ["Dinner, outside, and a basketball game."],
     shots: [
       {
         src: `${assetBase}/media/life-dinner.jpg`,
@@ -159,19 +131,14 @@ export const site = {
   },
   work: {
     id: "work",
-    num: "04",
     title: "Work",
-    statement: "On weekends, I clean a gym.",
-    paragraphs: [
-      "The job is janitorial. I show up and do the work.",
-    ],
+    paragraphs: ["On weekends I clean a gym. It’s a janitorial job."],
   },
   about: {
     id: "about",
     title: "About",
     paragraphs: [
-      "I live in Seoul, and I have lived in Mountain View, California. I speak English and Korean.",
-      "I’m interested in sociology, social policy, and psychology, and I want to study economics as well.",
+      "I live in Seoul. I lived in Mountain View, California. I speak English and Korean.",
     ],
   },
 } as const;
