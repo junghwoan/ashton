@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { site } from "@/content/site";
 
 function Rows({ rows }: { rows: readonly { label: string; value: string }[] }) {
@@ -115,33 +114,30 @@ export default function Page() {
             <Rows rows={site.dj.rows} />
             <div className="stack">
               <figure className="figure">
-                <Image
+                <img
                   src={site.dj.portrait.src}
                   alt={site.dj.portrait.alt}
                   width={site.dj.portrait.width}
                   height={site.dj.portrait.height}
-                  sizes="(min-width: 1120px) 1120px, 100vw"
-                  />
+                />
                 <figcaption>{site.dj.portrait.caption}</figcaption>
               </figure>
               <div className="split">
                 <figure className="figure">
-                  <Image
+                  <img
                     src={site.dj.deck.src}
                     alt={site.dj.deck.alt}
                     width={site.dj.deck.width}
                     height={site.dj.deck.height}
-                    sizes="(min-width: 900px) 60vw, 100vw"
                   />
                   <figcaption>{site.dj.deck.caption}</figcaption>
                 </figure>
                 <figure className="figure screen">
-                  <Image
+                  <img
                     src={site.dj.screen.src}
                     alt={site.dj.screen.alt}
                     width={site.dj.screen.width}
                     height={site.dj.screen.height}
-                    sizes="(min-width: 900px) 36vw, 100vw"
                   />
                   <figcaption>{site.dj.screen.caption}</figcaption>
                 </figure>
