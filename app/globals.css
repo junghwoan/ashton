@@ -77,14 +77,29 @@ a {
 
 .brand {
   font-family: var(--sans);
-  font-size: 1.28rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
   text-decoration: none;
   min-height: 44px;
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  line-height: 1.15;
+}
+
+.brand-mark {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.brand-name {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--quiet);
 }
 
 .nav-links {
@@ -657,15 +672,12 @@ footer {
 }
 
 .rf-name {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(4.5rem, 17.7vw, 14.2rem);
-  line-height: 0.85;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 500;
+  font-size: clamp(5.5rem, 18vw, 13.5rem);
+  line-height: 0.78;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Schibsted_Grotesk } from "next/font/google";
+import { Big_Shoulders, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -8,6 +8,14 @@ const sans = Schibsted_Grotesk({
   weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
+});
+
+const display = Big_Shoulders({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-display",
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const serif = Newsreader({
@@ -52,7 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${display.variable}`}>
       <body>
         {children}
       </body>

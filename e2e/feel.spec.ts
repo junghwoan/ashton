@@ -6,7 +6,8 @@ for (const width of widths) {
   test(`type and layout at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
     await page.goto("/");
-    await expect(page.locator(".rf-name")).toHaveText("DJTY");
+    await expect(page.locator(".rf-name")).toHaveText("DJ TY");
+    await expect(page.locator(".brand-name")).toHaveText("Ashton TY Hwang");
 
     const nameSize = await page.locator(".rf-name").evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
     const pillarSize = await page.locator(".pillars b").first().evaluate((el) => parseFloat(getComputedStyle(el).fontSize));

@@ -12,19 +12,13 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-const letters = ["D", "J", "T", "Y"];
-
 const practiceShots = [site.dj.green, site.dj.portrait, site.dj.portrait2, site.dj.screen, site.dj.screen2];
 
 export default function Page() {
   return (
     <Frame>
       <header className="rf-head">
-        <h1 className="rf-name" aria-label="DJ TY">
-          {letters.map((letter, index) => (
-            <span key={`${letter}-${index}`}>{letter}</span>
-          ))}
-        </h1>
+        <h1 className="rf-name">DJ TY</h1>
         <div className="rf-aside">
           <p>{site.dj.paragraphs[0]}</p>
           <p>Bedroom DJ. R&amp;B, American pop, house.</p>
