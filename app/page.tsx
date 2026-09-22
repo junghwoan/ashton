@@ -19,6 +19,24 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="chapter play" aria-label="Practice footage">
+        <div className="wrap">
+          <figure className="figure video-block">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={site.dj.video.poster}
+              width={720}
+              height={1280}
+            >
+              <source src={site.dj.video.src} type="video/mp4" />
+            </video>
+            <figcaption>{site.dj.video.caption}</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="chapter" id={site.research.id} aria-labelledby="research-title">
         <div className="wrap">
           <h2 id="research-title">{site.research.title}</h2>
@@ -94,12 +112,6 @@ export default function Page() {
             ))}
           </div>
           <div className="stack">
-            <figure className="figure video-block">
-              <video controls playsInline preload="metadata" poster={site.dj.video.poster}>
-                <source src={site.dj.video.src} type="video/mp4" />
-              </video>
-              <figcaption>{site.dj.video.caption}</figcaption>
-            </figure>
             <Figure shot={site.dj.portrait} />
             <div className="pair">
               <Figure shot={site.dj.portrait2} />
