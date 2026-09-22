@@ -16,7 +16,7 @@ export const site = {
   name: "DJ TY",
   person: "Ashton",
   title: "DJ TY",
-  description: "DJ TY. Amateur. I taught myself. R&B, American pop, and house.",
+  description: "DJ TY. Bedroom DJ. I taught myself. R&B, American pop, and house.",
   nav: [
     { href: "/", label: "Music" },
     { href: "/#reading", label: "Portal" },

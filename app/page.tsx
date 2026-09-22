@@ -14,7 +14,7 @@ export default function Page() {
     <Frame>
       <section className="hero" id="top">
         <div className="wrap">
-          <p className="kicker">Amateur</p>
+          <p className="kicker">Bedroom DJ</p>
           <h1 className="wordmark">DJ TY</h1>
           <p className="genres">R&amp;B · American pop · House</p>
         </div>
