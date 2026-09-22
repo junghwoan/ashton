@@ -77,12 +77,17 @@ export default function Page() {
       <Releases items={site.portal.releases} />
 
       <section className="rf-section portal-story" id="experience">
-        <h2>Listening is Reading.</h2>
-        <div className="portal-copy">
-          <p>My uncle inspired it.</p>
-          <p>I compose and mix with AI. I released the volumes. Copyright is mine.</p>
+        <p className="portal-label">Reading Portal</p>
+        <div className="portal-pair">
+          <h2>{site.portal.line}</h2>
+          <p className="portal-enter">{site.portal.enter}</p>
         </div>
-        <ol className="read-row">
+        <div className="portal-copy">
+          {site.portal.origin.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+        <ol className="read-path">
           {site.portal.states.map((state) => (
             <li key={state.letter}>
               <span>{state.letter}</span>

@@ -40,15 +40,18 @@ export const site = {
   portal: {
     id: "reading",
     title: "Reading Portal",
+    line: "Listening is Reading.",
+    enter: "Enter the page, let the book read you.",
     origin: [
-      "My uncle inspired it. “Listening is Reading.”",
+      "My uncle inspired it.",
+      "Music before the page, and while you are in it.",
       "I compose and mix with AI. I released the volumes. Copyright is mine.",
     ],
     states: [
-      { letter: "R", name: "Relax", note: "Slow down." },
+      { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },
       { letter: "E", name: "Explore", note: "Stay with the text." },
-      { letter: "A", name: "Awareness", note: "Notice attention." },
-      { letter: "D", name: "Dream", note: "Images." },
+      { letter: "A", name: "Awareness", note: "Notice when attention stays, and when it leaves." },
+      { letter: "D", name: "Dream", note: "Let images open." },
     ],
     releases: [
       {
