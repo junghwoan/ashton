@@ -1,5 +1,18 @@
 import { site } from "@/content/site";
 
+function Figure({
+  shot,
+}: {
+  shot: { src: string; alt: string; width: number; height: number; caption: string };
+}) {
+  return (
+    <figure className="figure">
+      <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
+      <figcaption>{shot.caption}</figcaption>
+    </figure>
+  );
+}
+
 function Rows({ rows }: { rows: readonly { label: string; value: string }[] }) {
   return (
     <dl className="rows">
@@ -113,34 +126,17 @@ export default function Page() {
             </div>
             <Rows rows={site.dj.rows} />
             <div className="stack">
-              <figure className="figure">
-                <img
-                  src={site.dj.portrait.src}
-                  alt={site.dj.portrait.alt}
-                  width={site.dj.portrait.width}
-                  height={site.dj.portrait.height}
-                />
-                <figcaption>{site.dj.portrait.caption}</figcaption>
-              </figure>
-              <div className="split">
-                <figure className="figure">
-                  <img
-                    src={site.dj.deck.src}
-                    alt={site.dj.deck.alt}
-                    width={site.dj.deck.width}
-                    height={site.dj.deck.height}
-                  />
-                  <figcaption>{site.dj.deck.caption}</figcaption>
-                </figure>
-                <figure className="figure screen">
-                  <img
-                    src={site.dj.screen.src}
-                    alt={site.dj.screen.alt}
-                    width={site.dj.screen.width}
-                    height={site.dj.screen.height}
-                  />
-                  <figcaption>{site.dj.screen.caption}</figcaption>
-                </figure>
+              <div className="pair">
+                <Figure shot={site.dj.portrait} />
+                <Figure shot={site.dj.portrait2} />
+              </div>
+              <div className="pair">
+                <Figure shot={site.dj.deck} />
+                <Figure shot={site.dj.deck2} />
+              </div>
+              <div className="pair">
+                <Figure shot={site.dj.screen} />
+                <Figure shot={site.dj.screen2} />
               </div>
               <figure className="figure video-block">
                 <video
@@ -173,10 +169,35 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="chapter" id={site.pictures.id} aria-labelledby="pictures-title">
+          <div className="wrap">
+            <p className="chapter-label">
+              <span>{site.pictures.num}</span>
+              <span>Photographs</span>
+            </p>
+            <h2 id="pictures-title">{site.pictures.title}</h2>
+            <div className="copy">
+              {site.pictures.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="stack">
+              <div className="pair">
+                <Figure shot={site.pictures.shots[0]} />
+                <Figure shot={site.pictures.shots[1]} />
+              </div>
+              <div className="pair">
+                <Figure shot={site.pictures.shots[2]} />
+                <Figure shot={site.pictures.shots[3]} />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="chapter about" id={site.about.id} aria-labelledby="about-title">
           <div className="wrap">
             <p className="chapter-label">
-              <span>05</span>
+              <span>06</span>
               <span>Person</span>
             </p>
             <h2 id="about-title">{site.about.title}</h2>
