@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Figure } from "@/components/figure";
 import { Frame } from "@/components/frame";
-import { Intro } from "@/components/intro";
 import { Notes } from "@/components/notes";
 import { Photos } from "@/components/photos";
 import { Releases } from "@/components/releases";
@@ -12,23 +12,13 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-const letters = ["D", "J", ".", "T", "Y"];
+const letters = ["D", "J", "T", "Y"];
 
-const photos = [
-  site.dj.green,
-  site.dj.portrait,
-  site.dj.portrait2,
-  site.dj.deck,
-  site.dj.deck2,
-  site.dj.screen,
-  site.dj.screen2,
-  ...site.pictures.shots,
-];
+const practiceShots = [site.dj.green, site.dj.portrait, site.dj.portrait2, site.dj.screen, site.dj.screen2];
 
 export default function Page() {
   return (
     <Frame>
-      <Intro />
       <header className="rf-head">
         <h1 className="rf-name" aria-label="DJ TY">
           {letters.map((letter, index) => (
@@ -36,6 +26,7 @@ export default function Page() {
           ))}
         </h1>
         <div className="rf-aside">
+          <p>{site.dj.paragraphs[0]}</p>
           <p>Bedroom DJ. R&amp;B, American pop, house.</p>
           <Link className="rf-btn" href="/about">
             about
@@ -45,48 +36,48 @@ export default function Page() {
 
       <div className="rf-portrait">
         <img
-          src={site.dj.portrait.src}
-          alt={site.dj.portrait.alt}
-          width={site.dj.portrait.width}
-          height={site.dj.portrait.height}
+          src={site.dj.portrait2.src}
+          alt={site.dj.portrait2.alt}
+          width={site.dj.portrait2.width}
+          height={site.dj.portrait2.height}
         />
         <div className="rf-cards">
           <a className="rf-card" href="#audio">
             <i />
             <small>latest release</small>
             <strong>Vol.5 Time of Flow</strong>
-            <span>Reading Portal. Composed and mixed by DJ TY.</span>
+            <span>Reading Portal. 2026.</span>
           </a>
           <a className="rf-card" href="#writing">
             <i />
             <small>note</small>
             <strong>Listening is Reading.</strong>
-            <span>My uncle inspired it. I released the volumes.</span>
+            <span>My uncle inspired it.</span>
           </a>
           <a className="rf-card" href="#visual">
             <i />
             <small>practice</small>
             <strong>At home.</strong>
-            <span>Self-taught. The set is in the room.</span>
+            <span>Self-taught. Home, and a cafe.</span>
           </a>
         </div>
       </div>
 
       <section className="pillars" aria-label="Sections">
         <a href="#audio">
-          <b>A U D I O</b>
+          <b>Audio</b>
           <p>The volumes.</p>
-          <span>view all</span>
+          <span>five, 2026</span>
         </a>
         <a href="#writing">
-          <b>W R I T T E N</b>
+          <b>Written</b>
           <p>Notes.</p>
-          <span>view all</span>
+          <span>three</span>
         </a>
         <a href="#visual">
-          <b>V I S U A L</b>
+          <b>Visual</b>
           <p>Photos.</p>
-          <span>view all</span>
+          <span>eleven, and a video</span>
         </a>
       </section>
 
@@ -99,7 +90,10 @@ export default function Page() {
               n: "01",
               kind: "music",
               title: "Reading Portal",
-              body: [...site.portal.origin, site.portal.states.map((state) => state.name).join(". ") + "."],
+              body: [
+                ...site.portal.origin,
+                ...site.portal.states.map((state) => `${state.name}. ${state.note}`),
+              ],
             },
             {
               n: "02",
@@ -109,35 +103,38 @@ export default function Page() {
             },
             {
               n: "03",
-              kind: "practice",
-              title: "DJ TY",
-              body: site.dj.paragraphs,
-            },
-            {
-              n: "04",
-              kind: "work",
-              title: site.work.title,
-              body: [...site.work.paragraphs, site.abibu.paragraphs[0]],
+              kind: "note",
+              title: "Ashton",
+              body: site.about.paragraphs,
             },
           ]}
         />
       </section>
 
       <section className="rf-section" id="visual">
-        <figure className="practice">
-          <video
-            controls
-            playsInline
-            preload="metadata"
-            poster={site.dj.video.poster}
-            width={720}
-            height={1280}
-          >
-            <source src={site.dj.video.src} type="video/mp4" />
-          </video>
-          <figcaption>{site.dj.video.caption}</figcaption>
-        </figure>
-        <Photos shots={photos} />
+        <div className="room">
+          <figure className="practice">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={site.dj.video.poster}
+              width={720}
+              height={1280}
+            >
+              <source src={site.dj.video.src} type="video/mp4" />
+            </video>
+            <figcaption>{site.dj.video.caption}</figcaption>
+          </figure>
+          <div className="room-decks">
+            <Figure shot={site.dj.deck} />
+            <Figure shot={site.dj.deck2} />
+          </div>
+        </div>
+        <p className="rail-label">Practice</p>
+        <Photos shots={practiceShots} />
+        <p className="rail-label">Elsewhere</p>
+        <Photos shots={site.pictures.shots} />
       </section>
     </Frame>
   );

@@ -26,7 +26,7 @@ export function Frame({ children }: { children: React.ReactNode }) {
       <main id="content">{children}</main>
       <footer>
         <div className="wrap footer-inner">
-          <span>dj.ty</span>
+          <span>© 2026 DJ TY</span>
           <Link href="/about">about</Link>
         </div>
       </footer>

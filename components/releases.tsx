@@ -145,7 +145,8 @@ export function Releases({ items }: { items: readonly Release[] }) {
             </article>
           ))}
         </div>
-        <div className={sound ? "sleeve is-playing" : "sleeve"}>
+      </div>
+      <div className={sound ? "sleeve is-playing" : "sleeve"}>
           <button
             type="button"
             className="sleeve-art"
@@ -192,7 +193,6 @@ export function Releases({ items }: { items: readonly Release[] }) {
               </button>
             )}
           </div>
-        </div>
       </div>
     </section>
   );

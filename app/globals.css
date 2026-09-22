@@ -29,9 +29,9 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.333rem;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.4;
   letter-spacing: 0;
   text-rendering: optimizeLegibility;
 }
@@ -77,7 +77,7 @@ a {
 
 .brand {
   font-family: var(--sans);
-  font-size: 1.15rem;
+  font-size: 1.28rem;
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
@@ -659,20 +659,20 @@ footer {
 .rf-name {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.08em;
+  gap: 0;
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(4.4rem, 16vw, 14rem);
-  line-height: 0.82;
-  letter-spacing: -0.03em;
+  font-size: clamp(4.5rem, 17.7vw, 14.2rem);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
 .rf-aside p {
-  margin: 0 0 14px;
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
-  line-height: 1.2;
+  margin: 0 0 8px;
+  font-size: 1.67rem;
+  line-height: 1.06;
 }
 
 .rf-btn,
@@ -696,17 +696,17 @@ footer {
 
 .rf-portrait {
   display: grid;
-  grid-template-columns: minmax(220px, 420px) minmax(0, 1fr);
-  gap: 28px 40px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 28px 48px;
   align-items: end;
-  margin-top: 28px;
+  margin-top: 36px;
   padding: 0 var(--gutter);
 }
 
 .rf-portrait > img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: min(78vh, 760px);
 }
 
 .rf-cards {
@@ -724,9 +724,12 @@ footer {
   text-decoration: none;
 }
 
-.rf-card:nth-child(2),
+.rf-card:nth-child(2) {
+  margin-left: 18px;
+}
+
 .rf-card:nth-child(3) {
-  margin-left: 0;
+  margin-left: 36px;
 }
 
 .rf-card i {
@@ -776,22 +779,23 @@ footer {
 
 .pillars b {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 400;
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  letter-spacing: 0.28em;
+  font-size: clamp(2.6rem, 6.9vw, 5.55rem);
+  line-height: 0.82;
+  letter-spacing: -0.012em;
 }
 
 .pillars p {
   margin: 0 0 12px;
-  max-width: 16rem;
-  font-size: 1.35rem;
-  line-height: 1.25;
+  max-width: 18rem;
+  font-size: 1.33rem;
+  line-height: 1.16;
 }
 
 .pillars span {
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: 1.28rem;
   font-weight: 600;
 }
 
@@ -819,7 +823,7 @@ footer {
 
 .audio-stage {
   position: relative;
-  height: 320vh;
+  height: 260vh;
 }
 
 .audio-stage.is-plain {
@@ -890,11 +894,11 @@ footer {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: min(34vh, 280px) minmax(0, 1fr);
+  grid-template-columns: min(38vh, 360px) minmax(0, 1fr);
   gap: 28px 36px;
   align-items: end;
-  margin-top: 8px;
-  max-width: 920px;
+  margin: 28px var(--gutter) 8px;
+  max-width: none;
 }
 
 .sleeve-art {
@@ -948,11 +952,11 @@ footer {
 }
 
 .sleeve-copy h2 {
-  margin: 0 0 6px;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin: 0 0 8px;
+  font-size: clamp(2.4rem, 5.5vw, 4.44rem);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
 }
 
 .sleeve-copy > p {
@@ -1180,8 +1184,8 @@ footer {
 }
 
 .disc-title {
-  font-size: 1.35rem;
-  line-height: 1.15;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  line-height: 0.9;
   color: var(--ink);
 }
 
@@ -1224,15 +1228,16 @@ footer {
 }
 
 .wcard h2 {
-  margin: 10px 0 8px;
+  margin: 8px 0 10px;
   font-weight: 400;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  font-size: clamp(2.6rem, 5.5vw, 4.44rem);
+  letter-spacing: -0.01em;
+  line-height: 0.9;
 }
 
 .writing-side .wcard h2 {
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.22rem);
+  line-height: 1.22;
 }
 
 .wcard p {
@@ -1325,8 +1330,31 @@ footer {
   color: var(--quiet);
 }
 
+.room {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px 20px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.room-decks {
+  display: grid;
+  gap: 12px;
+}
+
+.room-decks img {
+  width: 100%;
+  height: auto;
+}
+
+.rail-label {
+  margin: 8px 0 10px;
+  font-size: 1.33rem;
+}
+
 .practice {
-  margin: 0 0 28px;
+  margin: 0;
 }
 
 .practice video {
@@ -1401,6 +1429,20 @@ footer {
 
   .sleeve-art {
     width: min(100%, 280px);
+  }
+
+  .rf-portrait > img {
+    width: 100%;
+    height: auto;
+  }
+
+  .rf-card:nth-child(2),
+  .rf-card:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .room {
+    grid-template-columns: 1fr;
   }
 
   .release-player {

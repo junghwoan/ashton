@@ -15,19 +15,15 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0f0f0d",
-          color: "#f3f0e8",
+          background: "#f0eeeb",
+          color: "#111111",
           padding: "72px",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 28, letterSpacing: "0.16em", textTransform: "uppercase", color: "#b3ad9f" }}>
-              Bedroom DJ
-            </div>
-            <div style={{ fontSize: 120, lineHeight: 0.86, letterSpacing: "-0.05em", marginTop: 16 }}>
-              DJ TY
-            </div>
+            <div style={{ fontSize: 28, color: "#5c5854" }}>Bedroom DJ</div>
+            <div style={{ fontSize: 120, lineHeight: 0.9, letterSpacing: "-0.01em", marginTop: 16 }}>DJ TY</div>
           </div>
         </div>
       </div>

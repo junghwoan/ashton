@@ -1,0 +1,39 @@
+import { expect, test } from "@playwright/test";
+
+const widths = [1440, 1280, 390];
+
+for (const width of widths) {
+  test(`type and layout at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
+    await page.goto("/");
+    await expect(page.locator(".rf-name")).toHaveText("DJTY");
+
+    const nameSize = await page.locator(".rf-name").evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+    const pillarSize = await page.locator(".pillars b").first().evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+    const asideSize = await page.locator(".rf-aside p").first().evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+
+    if (width >= 1280) {
+      expect(nameSize).toBeGreaterThan(180);
+      expect(pillarSize).toBeGreaterThan(60);
+      expect(asideSize).toBeGreaterThan(24);
+    }
+
+    const portrait = page.locator(".rf-portrait img");
+    const box = await portrait.boundingBox();
+    const natural = await portrait.evaluate((img: HTMLImageElement) => ({ w: img.naturalWidth, h: img.naturalHeight }));
+    expect(box).not.toBeNull();
+    if (box) {
+      const shown = box.width / box.height;
+      const real = natural.w / natural.h;
+      expect(Math.abs(shown - real)).toBeLessThan(0.05);
+    }
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    );
+    expect(overflow).toBe(false);
+    await expect(page.locator("iframe.release-player")).toHaveCount(0);
+    await expect(page.getByText("Pronounced Tai.")).toBeVisible();
+    await expect(page.getByText("five, 2026")).toBeVisible();
+  });
+}
