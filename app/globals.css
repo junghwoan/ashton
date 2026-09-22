@@ -889,11 +889,130 @@ footer {
   padding-bottom: 12px;
 }
 
-.audio-tracks {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
+.sleeve {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: min(34vh, 280px) minmax(0, 1fr);
+  gap: 28px 36px;
+  align-items: end;
   margin-top: 8px;
+  max-width: 920px;
+}
+
+.sleeve-art {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sleeve-art img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 78%;
+  height: 78%;
+  object-fit: cover;
+}
+
+.sleeve-vinyl {
+  position: absolute;
+  z-index: 0;
+  top: 11%;
+  right: 10%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 15%, #161616 16% 19%, #3a3a3a 20%, #111 34%, #4a4a4a 35%, #111 36%, #1c1c1c 78%, #050505 79%);
+  transition: right 700ms ease;
+}
+
+.sleeve-vinyl::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14%;
+  height: 14%;
+  border-radius: 50%;
+  background: var(--bg);
+  transform: translate(-50%, -50%);
+}
+
+.sleeve.is-playing .sleeve-vinyl {
+  right: 0;
+  animation: sleeve-spin 14s linear infinite;
+}
+
+.sleeve-copy h2 {
+  margin: 0 0 6px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.sleeve-copy > p {
+  margin: 0 0 12px;
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
+.sleeve-tracks {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.sleeve-tracks button {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--quiet);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sleeve-tracks button span:first-child {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.sleeve-tracks button[aria-pressed="true"] {
+  color: var(--ink);
+}
+
+.sleeve .release-player {
+  width: 100%;
+  height: 152px;
+  margin: 0;
+}
+
+@keyframes sleeve-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sleeve.is-playing .sleeve-vinyl {
+    animation: none;
+  }
 }
 
 .sound-note {
@@ -1231,8 +1350,13 @@ footer {
   .pillars,
   .writing,
   .writing-grid,
-  .visual-row {
+  .visual-row,
+  .sleeve {
     grid-template-columns: 1fr;
+  }
+
+  .sleeve-art {
+    width: min(100%, 280px);
   }
 
   .rf-cards {

@@ -145,43 +145,53 @@ export function Releases({ items }: { items: readonly Release[] }) {
             </article>
           ))}
         </div>
-        {sound ? (
-          <iframe
-            key={src}
-            className="release-player"
-            src={src}
-            title={current.tracks.find((track) => track.slug === trackSlug)?.title ?? current.title}
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen"
-          />
-        ) : (
-          <p className="sound-note">Sound off.</p>
-        )}
-        <div className="audio-tracks">
+        <div className={sound ? "sleeve is-playing" : "sleeve"}>
           <button
             type="button"
-            className="track"
+            className="sleeve-art"
             aria-pressed={trackSlug === null}
             onClick={() => {
               enableSound();
               setTrackSlug(null);
             }}
           >
-            {current.title}
+            <span className="sleeve-vinyl" aria-hidden="true" />
+            <img src={current.cover} alt={current.alt} width={current.width} height={current.height} />
           </button>
-          {current.tracks.map((track) => (
-            <button
-              key={track.slug}
-              type="button"
-              className="track"
-              aria-pressed={track.slug === trackSlug}
-              onClick={() => {
-                enableSound();
-                setTrackSlug(track.slug);
-              }}
-            >
-              {track.title}
-            </button>
-          ))}
+          <div className="sleeve-copy">
+            <h2>{current.title}</h2>
+            <p>2026. Composed and mixed by DJ TY. Copyright mine.</p>
+            <ol className="sleeve-tracks">
+              {current.tracks.map((track, index) => (
+                <li key={track.slug}>
+                  <button
+                    type="button"
+                    aria-pressed={track.slug === trackSlug}
+                    onClick={() => {
+                      enableSound();
+                      setTrackSlug(track.slug);
+                    }}
+                  >
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{track.title}</span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+            {sound ? (
+              <iframe
+                key={src}
+                className="release-player"
+                src={src}
+                title={current.tracks.find((track) => track.slug === trackSlug)?.title ?? current.title}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen"
+              />
+            ) : (
+              <button type="button" className="rf-btn" onClick={enableSound}>
+                Play
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>
