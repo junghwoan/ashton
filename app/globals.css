@@ -874,6 +874,8 @@ html[data-theme="dark"] .rf-name {
 
 .audio-stage.is-plain {
   height: auto;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .audio-sticky {
@@ -895,7 +897,8 @@ html[data-theme="dark"] .rf-name {
 .audio-stage.is-plain .audio-sticky {
   position: static;
   height: auto;
-  overflow: visible;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .audio-bg {
@@ -931,8 +934,12 @@ html[data-theme="dark"] .rf-name {
 }
 
 .audio-stage.is-plain .audio-rail {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   overflow-x: auto;
   padding-left: 0;
+  padding-right: 0;
   padding-bottom: 12px;
 }
 
@@ -1645,10 +1652,50 @@ html[data-theme="dark"] .rf-name {
 
   .look-rail {
     height: 52vh;
+    gap: 16px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    align-items: flex-end;
+    row-gap: 0;
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: 6px;
+  }
+
+  .nav-links {
+    gap: 0 12px;
+  }
+
+  .nav-links a,
+  .theme-toggle,
+  .sound-toggle {
+    min-height: 40px;
+    font-size: 0.78rem;
+  }
+
+  .rf-name {
+    font-size: clamp(4.4rem, 22vw, 5.6rem);
+  }
+
+  .rf-aside p {
+    font-size: 1.2rem;
+  }
+
+  .rf-head {
+    padding-top: 20px;
+  }
+
+  .portal-covers a {
+    width: 28vw;
+  }
+
+  .read-row {
+    grid-template-columns: 1fr 1fr;
   }
 
   .release-player {
-    height: 420px;
+    height: 220px;
   }
 }
 

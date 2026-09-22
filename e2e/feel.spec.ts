@@ -29,6 +29,7 @@ for (const width of widths) {
       expect(Math.abs(shown - real)).toBeLessThan(0.05);
     }
 
+    if (width === 390) await page.locator("#project.is-plain").waitFor();
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
     );
@@ -36,6 +37,10 @@ for (const width of widths) {
     await expect(page.locator("iframe.release-player")).toHaveCount(0);
     await expect(page.getByText("Pronounced Tai.")).toBeVisible();
     await expect(page.getByText("five, 2026")).toBeVisible();
+    if (width === 390) {
+      const projectHeight = await page.locator("#project").evaluate((el) => el.getBoundingClientRect().height);
+      expect(projectHeight).toBeLessThan(1400);
+    }
     await page.getByRole("button", { name: "Night" }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     const nightBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);

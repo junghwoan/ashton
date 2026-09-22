@@ -29,19 +29,32 @@ export function Releases({ items }: { items: readonly Release[] }) {
   const [active, setActive] = useState(0);
   const [trackSlug, setTrackSlug] = useState<string | null>(null);
   const [sound, setSound] = useState(false);
-  const [reduce, setReduce] = useState(false);
+  const [plain, setPlain] = useState(false);
   const current = items[active] ?? items[0];
 
   useEffect(() => {
     const sync = () => setSound(document.documentElement.dataset.sound === "on");
     sync();
     window.addEventListener("djty-sound", sync);
-    setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    return () => window.removeEventListener("djty-sound", sync);
+    const reduceQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const narrowQ = window.matchMedia("(max-width: 800px)");
+    const syncPlain = () => {
+      const next = reduceQ.matches || narrowQ.matches;
+      setPlain(next);
+      if (next && railRef.current) railRef.current.style.transform = "none";
+    };
+    syncPlain();
+    reduceQ.addEventListener("change", syncPlain);
+    narrowQ.addEventListener("change", syncPlain);
+    return () => {
+      window.removeEventListener("djty-sound", sync);
+      reduceQ.removeEventListener("change", syncPlain);
+      narrowQ.removeEventListener("change", syncPlain);
+    };
   }, []);
 
   useEffect(() => {
-    if (reduce) return;
+    if (plain) return;
     const speeds = items.map(() => 0);
     const angles = items.map(() => 0);
     let last = 0;
@@ -89,7 +102,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [items, reduce]);
+  }, [items, plain]);
 
   function enableSound() {
     document.documentElement.dataset.sound = "on";
@@ -98,7 +111,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
   }
 
   function chooseAlbum(index: number) {
-    if (reduce) {
+    if (plain) {
       setActive(index);
       setTrackSlug(null);
       return;
@@ -115,7 +128,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
   const src = sound ? playerSrc(current.slug, trackSlug) : "";
 
   return (
-    <section className={reduce ? "audio-stage is-plain" : "audio-stage"} id="project" ref={stageRef}>
+    <section className={plain ? "audio-stage is-plain" : "audio-stage"} id="project" ref={stageRef}>
       <div className="audio-sticky">
         <p className="audio-bg" aria-hidden="true">
           {current.title}
