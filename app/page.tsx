@@ -83,18 +83,31 @@ export default function Page() {
 
       <Releases items={site.portal.releases} />
 
-      <section className="rf-section" id="writing">
+      <section className="rf-section portal-story" id="writing">
+        <h2>Listening is Reading.</h2>
+        <div className="portal-copy">
+          <p>My uncle inspired it.</p>
+          <p>I compose and mix with AI. I released the volumes. Copyright is mine.</p>
+        </div>
+        <ol className="read-row">
+          {site.portal.states.map((state) => (
+            <li key={state.letter}>
+              <span>{state.letter}</span>
+              <strong>{state.name}</strong>
+              <p>{state.note}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="portal-covers">
+          {site.portal.releases.map((release) => (
+            <a key={release.id} href="#audio">
+              <img src={release.cover} alt="" width={release.width} height={release.height} />
+              <span>{release.title}</span>
+            </a>
+          ))}
+        </div>
         <Notes
           notes={[
-            {
-              n: "01",
-              kind: "music",
-              title: "Reading Portal",
-              body: [
-                ...site.portal.origin,
-                ...site.portal.states.map((state) => `${state.name}. ${state.note}`),
-              ],
-            },
             {
               n: "02",
               kind: "research",

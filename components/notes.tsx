@@ -34,17 +34,11 @@ function Card({ note, feature = false }: { note: Note; feature?: boolean }) {
 }
 
 export function Notes({ notes }: { notes: readonly Note[] }) {
-  const [feature, ...side] = notes;
-  if (!feature) return null;
-
   return (
-    <div className="writing-grid">
-      <Card note={feature} feature />
-      <div className="writing-side">
-        {side.map((note) => (
-          <Card key={note.n} note={note} />
-        ))}
-      </div>
+    <div className="writing-side">
+      {notes.map((note) => (
+        <Card key={note.n} note={note} />
+      ))}
     </div>
   );
 }
