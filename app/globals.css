@@ -101,16 +101,10 @@ a {
   line-height: 1.15;
 }
 
-.brand-mark {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
 .brand-name {
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--quiet);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .nav-links {
@@ -684,11 +678,11 @@ footer {
 
 .rf-name {
   margin: 0;
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
-  font-weight: 500;
-  font-size: clamp(5.5rem, 18vw, 13.5rem);
-  line-height: 0.78;
-  letter-spacing: 0.01em;
+  font-family: var(--font-display), "Iowan Old Style", serif;
+  font-weight: 400;
+  font-size: clamp(4.6rem, 15vw, 13.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
 }
 
@@ -1675,7 +1669,7 @@ html[data-theme="dark"] .rf-name {
   }
 
   .rf-name {
-    font-size: clamp(4.4rem, 22vw, 5.6rem);
+    font-size: clamp(3.6rem, 18vw, 4.8rem);
   }
 
   .rf-aside p {

@@ -132,7 +132,6 @@ export const site = {
     id: "dj",
     title: "DJ TY",
     paragraphs: [
-      "TY, from Tae\u2011Yeon. Pronounced Tai.",
       "Self-taught. Home, and a cafe.",
     ],
     green: {

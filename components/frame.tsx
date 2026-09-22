@@ -11,7 +11,6 @@ export function Frame({ children }: { children: React.ReactNode }) {
       </a>
       <header className="nav">
         <Link className="brand" href="/">
-          <span className="brand-mark">dj.ty</span>
           <span className="brand-name">Ashton TY Hwang</span>
         </Link>
         <nav aria-label="Pages">

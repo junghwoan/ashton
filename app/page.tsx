@@ -20,7 +20,6 @@ export default function Page() {
       <header className="rf-head">
         <h1 className="rf-name">DJ TY</h1>
         <div className="rf-aside">
-          <p>{site.dj.paragraphs[0]}</p>
           <p>Bedroom DJ. R&amp;B, American pop, house.</p>
           <Link className="rf-btn" href="/about">
             about

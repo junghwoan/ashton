@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, Newsreader, Schibsted_Grotesk } from "next/font/google";
+import { Instrument_Serif, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -10,9 +10,9 @@ const sans = Schibsted_Grotesk({
   display: "swap",
 });
 
-const display = Big_Shoulders({
+const display = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: "400",
   variable: "--font-display",
   display: "swap",
   adjustFontFallback: false,

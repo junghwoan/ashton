@@ -35,7 +35,8 @@ for (const width of widths) {
     );
     expect(overflow).toBe(false);
     await expect(page.locator("iframe.release-player")).toHaveCount(0);
-    await expect(page.getByText("Pronounced Tai.")).toBeVisible();
+    await expect(page.getByText("Pronounced Tai.")).toHaveCount(0);
+    await expect(page.locator(".brand-mark")).toHaveCount(0);
     await expect(page.getByText("five, 2026")).toBeVisible();
     if (width === 390) {
       const projectHeight = await page.locator("#project").evaluate((el) => el.getBoundingClientRect().height);
