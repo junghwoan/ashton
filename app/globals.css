@@ -678,11 +678,11 @@ footer {
 
 .rf-name {
   margin: 0;
-  font-family: var(--font-display), "Iowan Old Style", serif;
-  font-weight: 400;
-  font-size: clamp(4.6rem, 15vw, 13.5rem);
-  line-height: 0.86;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: clamp(4.8rem, 17.7vw, 14.2rem);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
@@ -857,9 +857,7 @@ html[data-theme="dark"] body {
     radial-gradient(ellipse at 50% -10%, #241c16 0%, var(--bg) 46%);
 }
 
-html[data-theme="dark"] .rf-name {
-  letter-spacing: 0.035em;
-}
+
 
 .audio-stage {
   position: relative;
@@ -1173,7 +1171,7 @@ html[data-theme="dark"] .rf-name {
 .portal-story h2 {
   max-width: 10ch;
   margin: 0;
-  font-family: var(--font-display), var(--serif);
+  font-family: var(--serif);
   font-size: clamp(3.2rem, 7vw, 5.8rem);
   font-weight: 400;
   line-height: 0.88;
@@ -1223,7 +1221,7 @@ html[data-theme="dark"] .rf-name {
   display: inline-block;
   padding-right: 12px;
   background: var(--bg);
-  font-family: var(--font-display), var(--serif);
+  font-family: var(--serif);
   font-size: clamp(2.8rem, 5vw, 4.4rem);
   line-height: 0.85;
 }
@@ -1711,7 +1709,7 @@ html[data-theme="dark"] .rf-name {
   }
 
   .rf-name {
-    font-size: clamp(3.6rem, 18vw, 4.8rem);
+    font-size: clamp(4.4rem, 22vw, 6rem);
   }
 
   .rf-aside p {
