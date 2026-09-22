@@ -333,6 +333,63 @@ a {
   color: var(--muted);
 }
 
+.releases {
+  margin: 8px 0 36px;
+}
+
+.release-stage {
+  margin: 0;
+}
+
+.release-stage img {
+  width: min(100%, 720px);
+  height: auto;
+  display: block;
+}
+
+.release-stage figcaption {
+  margin-top: 12px;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.release-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+  max-width: 720px;
+}
+
+.release-list button {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.release-list img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.72;
+}
+
+.release-list .is-on img {
+  opacity: 1;
+}
+
+.release-list span {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+}
+
 .method {
   margin: 28px 0 0;
   padding-left: 1.25rem;

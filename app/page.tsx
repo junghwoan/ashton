@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figure } from "@/components/figure";
 import { Frame } from "@/components/frame";
+import { Releases } from "@/components/releases";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -50,9 +51,8 @@ export default function Page() {
 
       <section className="chapter" id={site.portal.id} aria-labelledby="portal-title">
         <div className="wrap">
-          <p className="kicker">In progress</p>
           <h2 id="portal-title">{site.portal.title}</h2>
-          <p className="question">Can sound change the way we read, focus, and think?</p>
+          <Releases items={site.portal.releases} />
           <div className="copy">
             {site.portal.origin.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -69,36 +69,6 @@ export default function Page() {
               </li>
             ))}
           </ol>
-          <div className="copy">
-            {site.portal.experiment.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <ol className="method">
-            {site.portal.steps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-          <article className="session" aria-labelledby="session-title">
-            <p className="kicker">{site.portal.session.code}</p>
-            <h3 id="session-title">{site.portal.session.title}</h3>
-            <p>{site.portal.session.status}</p>
-            <div className="wave" aria-hidden="true">
-              <span />
-            </div>
-            <p id="no-audio" className="wave-note">No audio yet.</p>
-            <dl className="rows">
-              {site.portal.session.rows.map((row) => (
-                <div key={row.label}>
-                  <dt>{row.label}</dt>
-                  <dd>{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <button type="button" disabled aria-describedby="no-audio">
-              Play
-            </button>
-          </article>
         </div>
       </section>
 

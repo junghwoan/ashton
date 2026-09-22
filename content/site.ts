@@ -40,8 +40,7 @@ export const site = {
     id: "reading",
     title: "Reading Portal",
     origin: [
-      "My uncle introduced me to Reading Portal. I did not invent that idea. The line he uses is “Listening is Reading.” In it, music is not only background. It is a way to set a state before reading, and while reading: a ritual for leaving the outside and entering focus, reflection, imagination, or calm. Another line from him is “Enter the page, let the book read you.”",
-      "He describes that passage with four states, R.E.A.D.",
+      "My uncle started Reading Portal. I didn’t. His line is “Listening is Reading.” Music sets the room before you read, and while you read. “Enter the page, let the book read you.” I make the music. These are the volumes that are out.",
     ],
     states: [
       { letter: "R", name: "Relax", note: "Slow down. Leave the noise you walked in with." },
@@ -49,34 +48,24 @@ export const site = {
       { letter: "A", name: "Awareness", note: "Notice attention: when it stays, and when it leaves." },
       { letter: "D", name: "Dream", note: "Let images and associations open." },
     ],
-    experiment: [
-      "I’m making my own version. I produce the music, sequence it, and mix it, then I read with it. I want to know whether sound changes how I read, focus, and think.",
-      "I have not finished a test. There is no result here. This is the method.",
+    releases: [
+      {
+        id: "vol4",
+        title: "Vol.4 Infinite Margins",
+        cover: `${assetBase}/media/rp-vol4.jpg`,
+        width: 1600,
+        height: 1600,
+        alt: "Reading Portal volume 4 cover, Infinite Margins. A person stands in a lit stone ring.",
+      },
+      {
+        id: "vol5",
+        title: "Vol.5 Time of Flow",
+        cover: `${assetBase}/media/rp-vol5.jpg`,
+        width: 1600,
+        height: 1600,
+        alt: "Reading Portal volume 5 cover, Time of Flow. An hourglass sits on an open book inside a gold ring.",
+      },
     ],
-    steps: [
-      "Choose a book, or a reading context.",
-      "Name the state I want.",
-      "Look for music.",
-      "Set a tempo and an energy range.",
-      "Put the tracks in order.",
-      "Mix the transitions.",
-      "Read while I listen.",
-      "Notice distraction, focus, mood, and pace.",
-      "Revise the mix.",
-      "If it holds up, try it with another reader.",
-    ],
-    session: {
-      code: "RP. 001",
-      title: "E.",
-      status: "Work in progress. I have not chosen the book, set a tempo, or recorded a mix.",
-      rows: [
-        { label: "State", value: "E — Explore" },
-        { label: "Book", value: "Not chosen" },
-        { label: "Tempo", value: "Not set" },
-        { label: "Duration", value: "None" },
-        { label: "Audio", value: "None yet" },
-      ],
-    },
   },
   dj: {
     id: "dj",
