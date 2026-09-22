@@ -337,54 +337,85 @@ a {
   margin: 8px 0 36px;
 }
 
-.release-stage {
-  margin: 0;
+.shelf-block {
+  margin-top: 22px;
 }
 
-.release-stage img {
-  width: min(100%, 720px);
-  height: auto;
+.shelf-block .kicker {
+  margin-bottom: 10px;
+}
+
+.shelf {
+  display: flex;
+  gap: 16px;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 2px;
+  padding-bottom: 8px;
+  scrollbar-color: rgba(243, 240, 232, 0.35) transparent;
+}
+
+.shelf > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.shelf button {
+  border: 0;
+  background: transparent;
+  color: var(--quiet);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.shelf img {
   display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  opacity: 0.62;
 }
 
-.release-stage figcaption {
-  margin-top: 12px;
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  letter-spacing: -0.03em;
+.shelf .is-on img,
+.shelf button[aria-pressed="true"] img {
+  opacity: 1;
+}
+
+.shelf button:has(img) {
+  display: grid;
+  gap: 8px;
+  width: min(74vw, 280px);
+  padding: 0;
+}
+
+.shelf button span,
+.shelf > button:not(:has(img)) {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.shelf > button:not(:has(img)) {
+  padding: 14px 40px 14px 0;
+  font-size: 1.05rem;
+}
+
+.shelf button[aria-pressed="true"] {
+  color: var(--ink);
 }
 
 .release-player {
   display: block;
   width: min(100%, 720px);
   height: 280px;
-  margin-top: 20px;
+  margin-top: 18px;
   border: 0;
   background: #0d0d0d;
-}
-
-.tracks {
-  list-style: none;
-  margin: 8px 0 28px;
-  padding: 0;
-  max-width: 720px;
-}
-
-.tracks button {
-  width: 100%;
-  min-height: 44px;
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  color: var(--quiet);
-  font: inherit;
-  letter-spacing: 0.02em;
-  text-align: left;
-  cursor: pointer;
-}
-
-.tracks button[aria-pressed="true"] {
-  color: var(--ink);
 }
 
 @media (max-width: 720px) {
@@ -393,41 +424,10 @@ a {
   }
 }
 
-.release-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
-  max-width: 720px;
-}
-
-.release-list button {
-  display: grid;
-  gap: 8px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  text-align: left;
-  font: inherit;
-  cursor: pointer;
-  min-height: 44px;
-}
-
-.release-list img {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.72;
-}
-
-.release-list .is-on img {
-  opacity: 1;
-}
-
-.release-list span {
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+@media (prefers-reduced-motion: reduce) {
+  .shelf {
+    scroll-behavior: auto;
+  }
 }
 
 .method {
