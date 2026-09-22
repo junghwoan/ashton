@@ -1340,7 +1340,9 @@ footer {
 
 .room-decks {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
+  margin-bottom: 28px;
 }
 
 .room-decks img {
@@ -1441,7 +1443,8 @@ footer {
     margin-left: 0;
   }
 
-  .room {
+  .room,
+  .room-decks {
     grid-template-columns: 1fr;
   }
 

@@ -184,11 +184,6 @@ export const site = {
       alt: "Another close view of a CDJ screen during practice, with a different waveform on the display.",
       caption: "Another track.",
     },
-    video: {
-      src: `${assetBase}/media/practice.mp4`,
-      poster: `${assetBase}/media/practice-poster.jpg`,
-      caption: "Practice footage.",
-    },
   },
   pictures: {
     id: "pictures",

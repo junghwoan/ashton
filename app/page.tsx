@@ -77,7 +77,7 @@ export default function Page() {
         <a href="#visual">
           <b>Visual</b>
           <p>Photos.</p>
-          <span>eleven, and a video</span>
+          <span>eleven</span>
         </a>
       </section>
 
@@ -112,24 +112,9 @@ export default function Page() {
       </section>
 
       <section className="rf-section" id="visual">
-        <div className="room">
-          <figure className="practice">
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster={site.dj.video.poster}
-              width={720}
-              height={1280}
-            >
-              <source src={site.dj.video.src} type="video/mp4" />
-            </video>
-            <figcaption>{site.dj.video.caption}</figcaption>
-          </figure>
-          <div className="room-decks">
-            <Figure shot={site.dj.deck} />
-            <Figure shot={site.dj.deck2} />
-          </div>
+        <div className="room-decks">
+          <Figure shot={site.dj.deck} />
+          <Figure shot={site.dj.deck2} />
         </div>
         <p className="rail-label">Practice</p>
         <Photos shots={practiceShots} />
