@@ -187,6 +187,43 @@ export const site = {
       alt: "Another close view of a CDJ screen during practice, with a different waveform on the display.",
       caption: "Another track.",
     },
+    gear: [
+      {
+        src: `${assetBase}/media/gear-top.jpg`,
+        width: 1792,
+        height: 1344,
+        alt: "A white Pioneer DJ XDJ-RX2 from above, between two white KRK speakers.",
+        caption: "From above.",
+      },
+      {
+        src: `${assetBase}/media/gear-speaker.jpg`,
+        width: 1792,
+        height: 1344,
+        alt: "The back of a white KRK Rokit speaker, with cables plugged in, and a Pioneer DJ controller behind it.",
+        caption: "The speaker.",
+      },
+      {
+        src: `${assetBase}/media/gear-speaker-2.jpg`,
+        width: 1792,
+        height: 1344,
+        alt: "The back of the other white KRK Rokit speaker on the practice table.",
+        caption: "The other one.",
+      },
+      {
+        src: `${assetBase}/media/gear-back.jpg`,
+        width: 1792,
+        height: 1344,
+        alt: "The back of the white Pioneer DJ controller, with a SanDisk drive and the input jacks.",
+        caption: "The back.",
+      },
+      {
+        src: `${assetBase}/media/gear-edition.jpg`,
+        width: 1792,
+        height: 1344,
+        alt: "The back of a Pioneer DJ XDJ-RX2, with a Limited Edition plate marked No. 308.",
+        caption: "No. 308.",
+      },
+    ],
   },
   pictures: {
     id: "pictures",

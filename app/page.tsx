@@ -12,7 +12,14 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-const practiceShots = [site.dj.green, site.dj.portrait, site.dj.portrait2, site.dj.screen, site.dj.screen2];
+const practiceShots = [
+  site.dj.green,
+  site.dj.portrait,
+  site.dj.portrait2,
+  site.dj.screen,
+  site.dj.screen2,
+  ...site.dj.gear,
+];
 
 export default function Page() {
   return (
@@ -70,7 +77,7 @@ export default function Page() {
         <a href="#daylife">
           <b>Daylife.</b>
           <p>The photos.</p>
-          <span>eleven</span>
+          <span>sixteen</span>
         </a>
       </section>
 
