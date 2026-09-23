@@ -19,6 +19,7 @@ const practiceShots = [
   site.dj.screen,
   site.dj.screen2,
   ...site.dj.gear,
+  ...site.dj.booth,
 ];
 
 export default function Page() {
@@ -77,7 +78,7 @@ export default function Page() {
         <a href="#daylife">
           <b>Daylife.</b>
           <p>The photos.</p>
-          <span>sixteen</span>
+          <span>twenty-seven</span>
         </a>
       </section>
 
