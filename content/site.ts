@@ -240,6 +240,18 @@ export const site = {
         caption: "Another setup.",
       },
     ],
+    clips: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((n) => ({
+      src: `${assetBase}/media/practice/dj-practice-${n}.mp4`,
+      poster: `${assetBase}/media/practice/dj-practice-${n}.jpg`,
+      title: `Practice ${n}`,
+    })),
+    takes: [
+      {
+        src: `${assetBase}/media/practice/take-20260721-130057.mp4`,
+        poster: `${assetBase}/media/practice/take-20260721-130057.jpg`,
+        title: "July 21, 13:00",
+      },
+    ],
   },
   pictures: {
     id: "pictures",

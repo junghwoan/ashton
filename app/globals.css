@@ -1597,6 +1597,44 @@ html[data-theme="dark"] body {
   height: auto;
 }
 
+.clips video {
+  display: block;
+  width: min(100%, 860px);
+  max-height: 70vh;
+  background: #111;
+}
+
+.clip-row {
+  display: flex;
+  gap: 8px 16px;
+  max-width: 100%;
+  margin-top: 14px;
+  overflow-x: auto;
+}
+
+.clip-row button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: var(--quiet);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clip-row button[aria-pressed="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.clips {
+  margin-bottom: clamp(48px, 8vh, 80px);
+}
+
 .rail-label {
   margin: 0 0 18px;
   font-size: 1.33rem;

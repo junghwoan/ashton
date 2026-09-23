@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Clips } from "@/components/clips";
 import { Figure } from "@/components/figure";
 import { Frame } from "@/components/frame";
 import { Notes } from "@/components/notes";
@@ -137,6 +138,7 @@ export default function Page() {
           <Figure shot={site.dj.deck2} />
         </div>
         <p className="rail-label">Practice</p>
+        <Clips items={[...site.dj.clips, ...site.dj.takes]} />
         <Photos shots={practiceShots} />
         <p className="rail-label">Elsewhere</p>
         <Photos shots={site.pictures.shots} />
