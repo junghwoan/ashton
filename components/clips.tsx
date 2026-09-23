@@ -19,12 +19,11 @@ export function Clips({ items }: { items: readonly Clip[] }) {
         poster={clip.poster}
         src={clip.src}
       />
-      <div className="clip-row" role="list">
+      <div className="clip-row">
         {items.map((item, index) => (
           <button
             key={item.src}
             type="button"
-            role="listitem"
             aria-pressed={index === current}
             onClick={() => setCurrent(index)}
           >

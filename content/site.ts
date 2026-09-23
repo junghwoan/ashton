@@ -251,6 +251,16 @@ export const site = {
         poster: `${assetBase}/media/practice/take-20260721-130057.jpg`,
         title: "July 21, 13:00",
       },
+      {
+        src: `${assetBase}/media/practice/take-20260721-130732.mp4`,
+        poster: `${assetBase}/media/practice/take-20260721-130732.jpg`,
+        title: "July 21, 13:07",
+      },
+      {
+        src: `${assetBase}/media/practice/take-20260721-132038.mp4`,
+        poster: `${assetBase}/media/practice/take-20260721-132038.jpg`,
+        title: "July 21, 13:20",
+      },
     ],
   },
   pictures: {
