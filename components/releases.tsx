@@ -23,7 +23,13 @@ function playerSrc(albumSlug: string, trackSlug: string | null) {
   return `https://audiomack.com/embed/${path}?background=0&autoplay=1`;
 }
 
-export function Releases({ items, credit }: { items: readonly Release[]; credit: string }) {
+export function Releases({
+  items,
+  credit = "2026. Composed and mixed by DJ TY. Copyright mine.",
+}: {
+  items: readonly Release[];
+  credit?: string;
+}) {
   const stageRef = useRef<HTMLElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(0);
