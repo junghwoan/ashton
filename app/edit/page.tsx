@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { CutEdit } from "@/components/cut-edit";
 import { EditGate } from "@/components/edit-gate";
+import { HomeEdit } from "@/components/home-edit";
 import { Frame } from "@/components/frame";
 import "../cut/edit/edit.css";
 
 export const metadata: Metadata = {
-  title: "Edit this cut",
+  title: "Edit",
   robots: { index: false, follow: false },
 };
 
@@ -22,7 +22,7 @@ export default function EditPage() {
       ]}
     >
       <EditGate>
-        <CutEdit />
+        <HomeEdit />
       </EditGate>
     </Frame>
   );
