@@ -6,11 +6,14 @@ import { site } from "@/content/site";
 export function Frame({
   children,
   links = site.nav,
-  foot = { href: "/cut", label: "another cut" },
+  editions = [
+    { href: "/cut", label: "another cut" },
+    { href: "/v3", label: "v3" },
+  ],
 }: {
   children: React.ReactNode;
   links?: readonly { href: string; label: string }[];
-  foot?: { href: string; label: string };
+  editions?: readonly { href: string; label: string }[];
 }) {
   return (
     <>
@@ -39,7 +42,11 @@ export function Frame({
           <span>© 2026 DJ TY</span>
           <span className="footer-links">
             <Link href="/about">about</Link>
-            <Link href={foot.href}>{foot.label}</Link>
+            {editions.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
           </span>
         </div>
       </footer>

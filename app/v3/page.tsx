@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { CutView } from "@/components/cut-view";
 import { Frame } from "@/components/frame";
+import { V3View } from "@/components/v3-view";
 
 export const metadata: Metadata = {
   title: "DJ TY",
@@ -8,23 +8,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const links = [
-  { href: "#listen", label: "Project." },
-  { href: "#read", label: "Experience." },
-  { href: "#room", label: "Daylife." },
-  { href: "/about", label: "about" },
-];
-
-export default function CutPage() {
+export default function V3Page() {
   return (
     <Frame
-      links={links}
+      links={[{ href: "#portal", label: "Project." }, { href: "/about", label: "about" }]}
       editions={[
         { href: "/", label: "first page" },
-        { href: "/v3", label: "v3" },
+        { href: "/cut", label: "another cut" },
       ]}
     >
-      <CutView />
+      <V3View />
     </Frame>
   );
 }
