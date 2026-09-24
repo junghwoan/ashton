@@ -30,6 +30,7 @@ export function V3View() {
   const releases = site.portal.releases;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<HTMLIFrameElement>(null);
   const live = useRef({ album: 0, track: 0, sound: false, x: 0.5, y: 0.46 });
   const [album, setAlbum] = useState(0);
   const [track, setTrack] = useState(0);
@@ -42,6 +43,11 @@ export function V3View() {
     live.current.track = track;
     live.current.sound = sound;
   }, [album, track, sound]);
+
+  useEffect(() => {
+    if (!sound) return;
+    playerRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [sound, track, album]);
 
   useEffect(() => {
     const sync = () => {
@@ -247,7 +253,9 @@ export function V3View() {
       onPointerMove={point}
       style={{ "--album": palette.hot } as CSSProperties}
     >
-      <canvas ref={canvasRef} aria-hidden="true" />
+      <div className="v3-field">
+        <canvas ref={canvasRef} aria-hidden="true" />
+      </div>
       <div className="v3-copy">
         <p className="v3-kicker">Bedroom DJ</p>
         <h1>DJ TY</h1>
@@ -288,7 +296,13 @@ export function V3View() {
         </button>
         <p className="v3-note">2026. Composed and mixed by DJ TY. Copyright mine.</p>
         {sound && song ? (
-          <iframe className="v3-player" title={song.title} src={playerSrc(current.slug, song.slug)} allow="autoplay" />
+          <iframe
+            ref={playerRef}
+            className="v3-player"
+            title={song.title}
+            src={playerSrc(current.slug, song.slug)}
+            allow="autoplay"
+          />
         ) : null}
       </div>
     </div>

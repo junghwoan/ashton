@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Figure } from "@/components/figure";
 import { Photos } from "@/components/photos";
+import { useCutDraft } from "@/components/use-cut-draft";
 import { site } from "@/content/site";
 
 const albumInk: Record<string, string> = {
@@ -20,19 +21,9 @@ function playerSrc(albumSlug: string, trackSlug: string | null) {
   return `https://audiomack.com/embed/${path}?background=0&autoplay=1`;
 }
 
-const roomShots = [
-  site.dj.portrait,
-  site.dj.portrait2,
-  site.dj.deck,
-  site.dj.deck2,
-  site.dj.screen,
-  site.dj.screen2,
-  ...site.dj.gear,
-  ...site.dj.booth,
-];
-
 export function CutView() {
-  const releases = site.portal.releases;
+  const { draft, srcOf, shotOf } = useCutDraft();
+  const releases = draft.releases;
   const takes = site.dj.takes;
   const practices = site.dj.clips;
   const [album, setAlbum] = useState(0);
@@ -88,24 +79,31 @@ export function CutView() {
     >
       <section className="cut-top" id="listen">
         <div className="cut-id">
-          <p className="cut-kicker">Bedroom DJ</p>
+          <p className="cut-kicker">{draft.kicker}</p>
           <div className="cut-mark">
-            <h1 className="cut-name">DJ TY</h1>
+            <h1 className="cut-name">{draft.name}</h1>
             <span className="cut-rule" aria-hidden="true" />
           </div>
-          <p className="cut-line">{site.portal.line}</p>
+          <p className="cut-line">{draft.line}</p>
         </div>
 
         <div className="cut-sleeve">
           <span className="cut-vinyl" aria-hidden="true" />
-          <button type="button" className="cut-cover" aria-pressed={sound && trackSlug === null} onClick={() => play(null)}>
-            <img src={current.cover} alt={current.alt} width={current.width} height={current.height} />
+          <span className="cut-sheen" aria-hidden="true" />
+          <button
+            type="button"
+            className="cut-cover"
+            aria-pressed={sound && trackSlug === null}
+            aria-label={`Play ${current.title}`}
+            onClick={() => play(null)}
+          >
+            <img src={srcOf(current.cover)} alt="" width={current.width} height={current.height} />
           </button>
         </div>
 
         <div className="cut-copy">
           <h2>{current.title}</h2>
-          <p>2026. Composed and mixed by DJ TY. Copyright mine.</p>
+          <p>{draft.credit}</p>
           <ol className="cut-tracks">
             {current.tracks.map((track, index) => (
               <li key={track.slug}>
@@ -121,7 +119,7 @@ export function CutView() {
           </button>
           {sound ? (
             <iframe
-              className="cut-player"
+              className={trackSlug ? "cut-player is-song" : "cut-player"}
               title={current.title}
               src={playerSrc(current.slug, trackSlug)}
               allow="autoplay"
@@ -141,25 +139,25 @@ export function CutView() {
               setTrackSlug(null);
             }}
           >
-            <img src={release.cover} alt="" width={160} height={160} />
+            <img src={srcOf(release.cover)} alt="" width={160} height={160} />
             <span>{release.title}</span>
           </button>
         ))}
       </div>
 
       <section className="cut-read" id="read">
-        <p className="cut-kicker">Reading Portal</p>
-        <h2>{site.portal.enter}</h2>
-        <p className="cut-try">{site.portal.attempt}</p>
+        <p className="cut-kicker">{draft.readKicker}</p>
+        <h2>{draft.enter}</h2>
+        <p className="cut-try">{draft.attempt}</p>
         <div className="cut-origin">
-          {site.portal.origin.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {draft.origin.map((paragraph, index) => (
+            <p key={`${index}-${paragraph}`}>{paragraph}</p>
           ))}
         </div>
         <div className={drawn ? "cut-path is-drawn" : "cut-path"} ref={pathRef}>
           <i aria-hidden="true" />
           <ol>
-            {site.portal.states.map((state) => (
+            {draft.states.map((state) => (
               <li key={state.letter}>
                 <span>{state.letter}</span>
                 <strong>{state.name}</strong>
@@ -171,8 +169,8 @@ export function CutView() {
       </section>
 
       <section className="cut-room" id="room">
-        <p className="cut-kicker">Practice</p>
-        <p className="cut-try">{site.dj.paragraphs[0]}</p>
+        <p className="cut-kicker">{draft.practiceKicker}</p>
+        <p className="cut-try">{draft.practice}</p>
         <div className="keep cut-video">
           <video key={clip.src} controls playsInline preload="metadata" poster={clip.poster} src={clip.src} />
           <div className="cut-takes">
@@ -211,12 +209,12 @@ export function CutView() {
           </div>
         </div>
         <div className="keep cut-green">
-          <Figure shot={site.dj.green} />
+          <Figure shot={shotOf(draft.green)} />
         </div>
-        <p className="cut-kicker">The room</p>
-        <Photos shots={roomShots} />
-        <p className="cut-kicker">Elsewhere</p>
-        <Photos shots={site.pictures.shots} />
+        <p className="cut-kicker">{draft.roomKicker}</p>
+        <Photos shots={draft.room.map(shotOf)} />
+        <p className="cut-kicker">{draft.elsewhereKicker}</p>
+        <Photos shots={draft.elsewhere.map(shotOf)} />
       </section>
     </div>
   );

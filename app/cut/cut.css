@@ -22,8 +22,8 @@
   margin: 0;
   font-family: var(--font-display), "Arial Narrow", sans-serif;
   font-weight: 600;
-  font-size: clamp(4.2rem, 12vw, 7.6rem);
-  line-height: 0.82;
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  line-height: 0.84;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
@@ -31,8 +31,8 @@
 .cut-rule {
   display: block;
   width: 100%;
-  height: 3px;
-  margin-top: 12px;
+  height: 2px;
+  margin-top: 8px;
   background: var(--ink);
   transition: background-color 420ms linear;
 }
@@ -63,47 +63,64 @@
 
 .cut-sleeve {
   position: relative;
-  width: min(100%, 460px);
+  width: min(100%, 560px);
   aspect-ratio: 1;
   overflow: hidden;
 }
 
-.cut-vinyl {
+.cut-vinyl,
+.cut-sheen {
   position: absolute;
   z-index: 0;
   top: 11%;
-  right: 14%;
+  right: 6%;
   width: 78%;
   height: 78%;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, transparent 15%, #161616 16% 19%, #3a3a3a 20%, #111 34%, #4a4a4a 35%, #111 36%, #1c1c1c 78%, #050505 79%);
-  transition: right 700ms ease;
+  transform: translateX(0);
+  transition: transform 700ms ease;
 }
 
-.cut-vinyl::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: conic-gradient(from 20deg, transparent 0 68%, rgba(255, 255, 255, 0.34) 76%, transparent 84%);
+.cut-vinyl {
+  background:
+    radial-gradient(circle at 50% 50%,
+      #1c1c1c 0 13%,
+      #070707 14% 17%,
+      #2c2c2c 18%,
+      #101010 19% 33%,
+      #454545 34%,
+      #121212 35% 52%,
+      #3a3a3a 53%,
+      #141414 54% 74%,
+      #4a4a4a 75%,
+      #0a0a0a 76% 100%);
+}
+
+.cut-sheen {
+  z-index: 1;
+  pointer-events: none;
   opacity: 0;
+  background: linear-gradient(118deg, transparent 46%, rgba(255, 255, 255, 0.42) 50%, transparent 54%);
+  -webkit-mask: radial-gradient(circle, transparent 16%, #000 18% 78%, transparent 80%);
+  mask: radial-gradient(circle, transparent 16%, #000 18% 78%, transparent 80%);
+  transition: transform 700ms ease, opacity 420ms linear;
 }
 
 .cut.is-on .cut-vinyl {
-  right: 0;
+  transform: translateX(4%);
   animation: cut-spin 14s linear infinite;
 }
 
-.cut.is-on .cut-vinyl::before {
+.cut.is-on .cut-sheen {
   opacity: 1;
+  transform: translateX(4%);
 }
 
 .cut-cover {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
-  width: 78%;
+  width: 62%;
   padding: 0;
   border: 0;
   background: transparent;
@@ -124,10 +141,10 @@
 .cut-copy h2 {
   margin: 0 0 8px;
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
   font-weight: 400;
   letter-spacing: -0.01em;
-  line-height: 0.95;
+  line-height: 1.05;
 }
 
 .cut-copy > p,
@@ -195,9 +212,13 @@
 .cut-player {
   display: block;
   width: min(100%, 640px);
-  height: 152px;
+  height: 340px;
   margin-top: 16px;
   border: 0;
+}
+
+.cut-player.is-song {
+  height: 252px;
 }
 
 .cut-albums {
@@ -373,18 +394,22 @@ html[data-theme="dark"] .cut.is-on .cut-sleeve {
 }
 
 @keyframes cut-spin {
+  from {
+    transform: translateX(4%) rotate(0deg);
+  }
+
   to {
-    transform: rotate(360deg);
+    transform: translateX(4%) rotate(360deg);
   }
 }
 
 @media (min-width: 900px) {
   .cut-top {
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+    grid-template-columns: minmax(280px, 0.82fr) minmax(420px, 1.18fr);
     grid-template-areas:
       "id sleeve"
       "copy sleeve";
-    align-items: end;
+    align-items: center;
   }
 
   .cut-id {
@@ -393,6 +418,7 @@ html[data-theme="dark"] .cut.is-on .cut-sleeve {
 
   .cut-sleeve {
     grid-area: sleeve;
+    width: min(100%, 68vh, 680px);
     justify-self: end;
   }
 
@@ -410,11 +436,12 @@ html[data-theme="dark"] .cut.is-on .cut-sleeve {
 @media (prefers-reduced-motion: reduce) {
   .cut.is-on .cut-vinyl {
     animation: none;
-    right: 0;
+    transform: translateX(4%);
   }
 
-  .cut.is-on .cut-vinyl::before {
+  .cut.is-on .cut-sheen {
     opacity: 0.7;
+    transform: translateX(4%);
   }
 
   .cut.is-on .cut-cover img,
@@ -425,6 +452,7 @@ html[data-theme="dark"] .cut.is-on .cut-sleeve {
   }
 
   .cut-vinyl,
+  .cut-sheen,
   .cut-cover img,
   .cut-rule {
     transition: none;

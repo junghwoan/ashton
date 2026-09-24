@@ -15,9 +15,15 @@ html[data-theme="dark"]:has(.v3) {
   display: grid;
   grid-template-rows: 1fr auto;
   min-height: calc(100svh - 64px);
-  overflow: hidden;
   background: #07060a;
   color: #f4efe6;
+}
+
+.v3-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .v3 canvas {
@@ -25,7 +31,6 @@ html[data-theme="dark"]:has(.v3) {
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
 }
 
 .v3-copy,
@@ -187,7 +192,7 @@ html[data-theme="dark"]:has(.v3) {
 .v3-player {
   display: block;
   width: min(100%, 640px);
-  height: 132px;
+  height: 252px;
   border: 0;
   pointer-events: auto;
 }

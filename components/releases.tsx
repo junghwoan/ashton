@@ -195,7 +195,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
             {sound ? (
               <iframe
                 key={src}
-                className="release-player"
+                className={trackSlug ? "release-player is-song" : "release-player"}
                 src={src}
                 title={current.tracks.find((track) => track.slug === trackSlug)?.title ?? current.title}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen"
