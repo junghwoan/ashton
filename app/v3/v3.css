@@ -192,7 +192,7 @@ html[data-theme="dark"]:has(.v3) {
 .v3-player {
   display: block;
   width: min(100%, 640px);
-  height: 252px;
+  height: 300px;
   border: 0;
   pointer-events: auto;
 }

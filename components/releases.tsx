@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { audiomackHeight } from "@/lib/audiomack";
 
 type Track = { slug: string; title: string };
 
@@ -22,7 +23,7 @@ function playerSrc(albumSlug: string, trackSlug: string | null) {
   return `https://audiomack.com/embed/${path}?background=0&autoplay=1`;
 }
 
-export function Releases({ items }: { items: readonly Release[] }) {
+export function Releases({ items, credit }: { items: readonly Release[]; credit: string }) {
   const stageRef = useRef<HTMLElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(0);
@@ -128,6 +129,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
   const src = sound ? playerSrc(current.slug, trackSlug) : "";
 
   return (
+    <>
     <section className={plain ? "audio-stage is-plain" : "audio-stage"} id="project" ref={stageRef}>
       <div className="audio-sticky">
         <p className="audio-bg" aria-hidden="true">
@@ -159,6 +161,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
           ))}
         </div>
       </div>
+    </section>
       <div className={sound ? "sleeve is-playing" : "sleeve"}>
           <button
             type="button"
@@ -174,7 +177,7 @@ export function Releases({ items }: { items: readonly Release[] }) {
           </button>
           <div className="sleeve-copy">
             <h2>{current.title}</h2>
-            <p>2026. Composed and mixed by DJ TY. Copyright mine.</p>
+            <p>{credit}</p>
             <ol className="sleeve-tracks">
               {current.tracks.map((track, index) => (
                 <li key={track.slug}>
@@ -196,7 +199,9 @@ export function Releases({ items }: { items: readonly Release[] }) {
               <iframe
                 key={src}
                 className={trackSlug ? "release-player is-song" : "release-player"}
+                style={{ height: audiomackHeight(Boolean(trackSlug), current.tracks.length) }}
                 src={src}
+                scrolling="no"
                 title={current.tracks.find((track) => track.slug === trackSlug)?.title ?? current.title}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen"
               />
@@ -207,6 +212,6 @@ export function Releases({ items }: { items: readonly Release[] }) {
             )}
           </div>
       </div>
-    </section>
+    </>
   );
 }

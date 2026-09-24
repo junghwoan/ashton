@@ -209,16 +209,13 @@
   border-bottom-color: var(--album);
 }
 
-.cut-player {
+.cut-player,
+.cut-player.is-song {
   display: block;
   width: min(100%, 640px);
-  height: 340px;
+  min-height: 300px;
   margin-top: 16px;
   border: 0;
-}
-
-.cut-player.is-song {
-  height: 252px;
 }
 
 .cut-albums {
