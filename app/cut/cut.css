@@ -1,0 +1,432 @@
+.cut {
+  --album: #c8923a;
+  padding: clamp(28px, 6vh, 72px) var(--gutter) clamp(64px, 10vh, 120px);
+}
+
+.cut-kicker {
+  margin: 0 0 10px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.cut-mark {
+  display: grid;
+  width: max-content;
+  max-width: 100%;
+}
+
+.cut-name {
+  margin: 0;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: clamp(4.2rem, 12vw, 7.6rem);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.cut-rule {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--ink);
+  transition: background-color 420ms linear;
+}
+
+.cut.is-on .cut-rule {
+  background: var(--album);
+}
+
+.cut-line,
+.cut-try,
+.cut-origin p {
+  margin: 0;
+}
+
+.cut-line {
+  margin-top: 18px;
+  max-width: 16ch;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.cut-top {
+  display: grid;
+  gap: 28px 48px;
+}
+
+.cut-sleeve {
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.cut-vinyl {
+  position: absolute;
+  z-index: 0;
+  top: 11%;
+  right: 14%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 15%, #161616 16% 19%, #3a3a3a 20%, #111 34%, #4a4a4a 35%, #111 36%, #1c1c1c 78%, #050505 79%);
+  transition: right 700ms ease;
+}
+
+.cut-vinyl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from 20deg, transparent 0 68%, rgba(255, 255, 255, 0.34) 76%, transparent 84%);
+  opacity: 0;
+}
+
+.cut.is-on .cut-vinyl {
+  right: 0;
+  animation: cut-spin 14s linear infinite;
+}
+
+.cut.is-on .cut-vinyl::before {
+  opacity: 1;
+}
+
+.cut-cover {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 78%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cut-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 700ms ease;
+}
+
+.cut.is-on .cut-cover img {
+  transform: rotate(-2deg);
+}
+
+.cut-copy h2 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+.cut-copy > p,
+.cut-try {
+  color: var(--quiet);
+  font-size: 1.05rem;
+}
+
+.cut-tracks {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+}
+
+.cut-tracks button {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--quiet);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cut-tracks button span {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.cut-tracks button[aria-pressed="true"] {
+  color: var(--ink);
+}
+
+.cut-play,
+.cut-step button,
+.cut-takes button {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cut-play {
+  padding: 2px 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.cut-play[aria-pressed="true"] {
+  color: var(--album);
+  border-bottom-color: var(--album);
+}
+
+.cut-player {
+  display: block;
+  width: min(100%, 640px);
+  height: 152px;
+  margin-top: 16px;
+  border: 0;
+}
+
+.cut-albums {
+  display: flex;
+  gap: 18px;
+  margin-top: clamp(36px, 6vh, 72px);
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.cut-albums button {
+  flex: 0 0 auto;
+  width: 132px;
+  padding: 0 0 8px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--quiet);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cut-albums img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.cut-albums button[aria-pressed="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.cut.is-on .cut-albums button[aria-pressed="true"] {
+  border-bottom-color: var(--album);
+}
+
+.cut-read,
+.cut-room {
+  margin-top: clamp(72px, 12vh, 128px);
+}
+
+.cut-read h2 {
+  max-width: 16ch;
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.cut-origin {
+  display: grid;
+  gap: 8px;
+  max-width: 38rem;
+  margin-top: 22px;
+}
+
+.cut-path {
+  margin-top: 36px;
+}
+
+.cut-path i {
+  display: block;
+  height: 1px;
+  margin-bottom: 18px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.cut-path.is-drawn i {
+  transform: scaleX(1);
+  transition: transform 900ms ease;
+}
+
+.cut-path ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cut-path li span {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cut-path strong {
+  display: block;
+  margin: 6px 0;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.cut-path p {
+  margin: 0;
+  color: var(--quiet);
+  font-size: 0.98rem;
+}
+
+.cut-video video {
+  display: block;
+  width: min(100%, 860px);
+  max-height: 70vh;
+  margin-top: 18px;
+  background: #111;
+}
+
+.cut-takes,
+.cut-step {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.cut-takes button[aria-pressed="true"],
+.cut-step button[aria-pressed="true"] {
+  border-bottom: 1px solid var(--ink);
+}
+
+.cut-step button:disabled {
+  color: var(--quiet);
+  cursor: default;
+}
+
+.cut-green {
+  width: min(100%, 520px);
+  margin: clamp(36px, 6vh, 64px) 0;
+}
+
+.cut button:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+html[data-theme="dark"] .cut::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(244, 239, 230, 0.55) 0.45px, transparent 0.45px);
+  background-size: 3px 3px;
+}
+
+html[data-theme="dark"] .cut img,
+html[data-theme="dark"] .cut video {
+  filter: grayscale(1);
+}
+
+html[data-theme="dark"] .cut .keep img,
+html[data-theme="dark"] .cut .keep video,
+html[data-theme="dark"] .cut.is-on .cut-sleeve img,
+html[data-theme="dark"] .cut.is-on .cut-albums button[aria-pressed="true"] img {
+  filter: none;
+}
+
+html[data-theme="dark"] .cut.is-on .cut-sleeve {
+  filter: drop-shadow(0 0 28px color-mix(in srgb, var(--album) 55%, transparent));
+}
+
+@keyframes cut-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 900px) {
+  .cut-top {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+    grid-template-areas:
+      "id sleeve"
+      "copy sleeve";
+    align-items: end;
+  }
+
+  .cut-id {
+    grid-area: id;
+  }
+
+  .cut-sleeve {
+    grid-area: sleeve;
+    justify-self: end;
+  }
+
+  .cut-copy {
+    grid-area: copy;
+  }
+}
+
+@media (max-width: 700px) {
+  .cut-path ol {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cut.is-on .cut-vinyl {
+    animation: none;
+    right: 0;
+  }
+
+  .cut.is-on .cut-vinyl::before {
+    opacity: 0.7;
+  }
+
+  .cut.is-on .cut-cover img,
+  .cut-path i,
+  .cut-path.is-drawn i {
+    transform: none;
+    transition: none;
+  }
+
+  .cut-vinyl,
+  .cut-cover img,
+  .cut-rule {
+    transition: none;
+  }
+}

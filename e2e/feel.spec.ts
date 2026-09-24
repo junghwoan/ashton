@@ -42,7 +42,7 @@ for (const width of widths) {
       const projectHeight = await page.locator("#project").evaluate((el) => el.getBoundingClientRect().height);
       expect(projectHeight).toBeLessThan(1400);
     }
-    await page.getByRole("button", { name: "Night" }).click();
+    await page.getByRole("button", { name: "Night", exact: true }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     const nightBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
     expect(nightBg).not.toBe("rgb(240, 238, 235)");

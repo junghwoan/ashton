@@ -3,7 +3,15 @@ import { SoundToggle } from "@/components/sound";
 import { ThemeToggle } from "@/components/theme";
 import { site } from "@/content/site";
 
-export function Frame({ children }: { children: React.ReactNode }) {
+export function Frame({
+  children,
+  links = site.nav,
+  foot = { href: "/cut", label: "another cut" },
+}: {
+  children: React.ReactNode;
+  links?: readonly { href: string; label: string }[];
+  foot?: { href: string; label: string };
+}) {
   return (
     <>
       <a className="skip" href="#content">
@@ -15,7 +23,7 @@ export function Frame({ children }: { children: React.ReactNode }) {
         </Link>
         <nav aria-label="Pages">
           <div className="nav-links">
-            {site.nav.map((item) => (
+            {links.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}
               </Link>
@@ -29,7 +37,10 @@ export function Frame({ children }: { children: React.ReactNode }) {
       <footer>
         <div className="wrap footer-inner">
           <span>© 2026 DJ TY</span>
-          <Link href="/about">about</Link>
+          <span className="footer-links">
+            <Link href="/about">about</Link>
+            <Link href={foot.href}>{foot.label}</Link>
+          </span>
         </div>
       </footer>
     </>
