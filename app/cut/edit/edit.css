@@ -1,0 +1,170 @@
+.edit {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: clamp(28px, 6vh, 64px) var(--gutter) 40px;
+}
+
+.edit-lead,
+.edit-status,
+.edit-hint {
+  margin: 12px 0 0;
+  color: var(--quiet);
+  font-size: 1.02rem;
+}
+
+.edit h1 {
+  margin: 8px 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.edit a.edit-text,
+.edit button.edit-text {
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.edit button:disabled {
+  color: var(--quiet);
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.edit-block {
+  margin-top: clamp(48px, 8vh, 80px);
+}
+
+.edit-block h2 {
+  margin: 0 0 16px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.edit label {
+  display: block;
+  margin-top: 16px;
+}
+
+.edit label span,
+.edit-photo p {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--quiet);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.edit input,
+.edit textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.edit textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.edit input:focus-visible,
+.edit textarea:focus-visible,
+.edit button:focus-visible,
+.edit a:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.edit-card {
+  margin-top: 28px;
+  padding-top: 8px;
+}
+
+.edit-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.edit-photo {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 8px 16px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.edit-photo img {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  background: #111;
+}
+
+.edit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  grid-column: 2;
+}
+
+.edit-file {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .edit-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-row {
+    grid-column: 1;
+  }
+}

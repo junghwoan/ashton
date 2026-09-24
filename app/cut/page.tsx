@@ -21,6 +21,7 @@ export default function CutPage() {
       links={links}
       editions={[
         { href: "/", label: "first page" },
+        { href: "/cut/edit", label: "edit" },
         { href: "/v3", label: "v3" },
       ]}
     >
