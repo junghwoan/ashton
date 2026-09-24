@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { CutEdit } from "@/components/cut-edit";
 import { EditGate } from "@/components/edit-gate";
 import { Frame } from "@/components/frame";
-import "./edit.css";
+import "../cut/edit/edit.css";
 
 export const metadata: Metadata = {
   title: "Edit this cut",
   robots: { index: false, follow: false },
 };
 
-export default function EditCutPage() {
+export default function EditPage() {
   return (
     <Frame
       links={[
