@@ -153,6 +153,9 @@ export function HomeEdit() {
         <Link className="edit-text" href="/">
           첫 페이지 열기
         </Link>
+        <Link className="edit-text" href="/about/edit">
+          About만
+        </Link>
         <Link className="edit-text" href="/cut/edit">
           컷 편집
         </Link>

@@ -1,4 +1,4 @@
-import { defaultHomeDraft, idbSources, isHomeDraft, type HomeDraft } from "@/content/home-draft";
+import { completeHomeDraft, defaultHomeDraft, idbSources, isHomeDraft, type HomeDraft } from "@/content/home-draft";
 import { mediaSrc } from "@/content/cut-draft";
 
 const DB_NAME = "djty-home";
@@ -102,9 +102,9 @@ export async function publishedDraft(): Promise<HomeDraft | null> {
 
 export async function loadHomeDraft(): Promise<HomeDraft> {
   const stored = await readStoredDraft();
-  if (stored) return stored;
+  if (stored) return completeHomeDraft(stored);
   const published = await publishedDraft();
-  return published ?? defaultHomeDraft();
+  return completeHomeDraft(published ?? defaultHomeDraft());
 }
 
 export async function resolveDraftImages(draft: HomeDraft) {
@@ -178,6 +178,7 @@ function retarget(draft: HomeDraft, from: string, to: string): HomeDraft {
     decks: draft.decks.map(shot),
     practice: draft.practice.map(shot),
     elsewhere: draft.elsewhere.map(shot),
+    aboutShots: (draft.aboutShots ?? []).map(shot),
   };
 }
 

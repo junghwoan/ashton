@@ -60,6 +60,8 @@ export type HomeDraft = {
   updatedAt: number;
   name: string;
   tagline: string;
+  aboutTitle?: string;
+  aboutShots?: HomeShot[];
   portrait: HomeShot;
   cards: HomeCard[];
   pillars: HomePillar[];
@@ -101,6 +103,7 @@ export function defaultHomeDraft(): HomeDraft {
     updatedAt: 0,
     name: "DJ TY",
     tagline: "Bedroom DJ. R&B, American pop, house.",
+    aboutTitle: site.about.title,
     portrait: shot(site.dj.portrait2),
     cards: [
       { id: "latest", href: "#project", kicker: "latest release", title: "Vol.5 Time of Flow", line: "Reading Portal. 2026." },
@@ -146,6 +149,16 @@ export function defaultHomeDraft(): HomeDraft {
       ...site.dj.booth.map(shot),
     ],
     elsewhere: site.pictures.shots.map(shot),
+    aboutShots: site.pictures.shots.slice(0, 4).map(shot),
+  };
+}
+
+export function completeHomeDraft(draft: HomeDraft): HomeDraft {
+  const base = defaultHomeDraft();
+  return {
+    ...draft,
+    aboutTitle: draft.aboutTitle || base.aboutTitle,
+    aboutShots: draft.aboutShots?.length ? draft.aboutShots : base.aboutShots,
   };
 }
 
@@ -172,6 +185,7 @@ export function idbSources(draft: HomeDraft) {
     ...draft.decks.map((item) => item.src),
     ...draft.practice.map((item) => item.src),
     ...draft.elsewhere.map((item) => item.src),
+    ...(draft.aboutShots ?? []).map((item) => item.src),
   ];
   return sources.filter((src) => src.startsWith("idb:"));
 }
